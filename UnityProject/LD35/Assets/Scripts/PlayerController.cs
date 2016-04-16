@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
         UpdateMovement();
     }
 
+    float m_lastJumpTime = 0;
+
     void UpdateMovement()
     {
         Vector2 movementVector = Vector3.zero;
@@ -63,9 +65,10 @@ public class PlayerController : MonoBehaviour
         }
 
         // jump!
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && m_lastJumpTime + m_jumpCooldown < Time.time)
         {
             forceVector.y += m_jumpForce;
+            m_lastJumpTime = Time.time;
         }
 
         // rotate the movement and force vector to the forward facing direction
