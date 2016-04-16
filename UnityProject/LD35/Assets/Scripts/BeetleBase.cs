@@ -36,16 +36,50 @@ public class BeetleBase : MonoBehaviour
         attackerForceVector = -vectorFromAttack * attackingBeetle.m_bounceAfterBeingHit;
         defenderForceVector = vectorFromAttack * m_bounceAfterBeingHit;
 
-        attackingBeetle.m_body.velocity = Vector3.zero;
-        attackingBeetle.m_body.AddForce(attackerForceVector);
-        m_body.velocity = Vector3.zero;
-        m_body.AddForce(defenderForceVector);
+        attackingBeetle.Bounce(attackerForceVector);
+        Bounce(defenderForceVector);
 
         if (m_timeSinceDamage + m_damageInvulnerabilityTime < Time.time)
         {
             // tell all networked clients that damage has been applied
-            m_photonView.RPC("RPC_ApplyDamage", PhotonTargets.AllBuffered, attackingBeetle.m_damage);
+            try
+            {
+                m_photonView.RPC("RPC_ApplyDamage", PhotonTargets.AllBuffered, attackingBeetle.m_damage);
+            }
+            catch { }
             m_timeSinceDamage = Time.time;
+        }
+    }
+
+    public void Bounce(Vector3 force)
+    {
+        // tell network clients to bounce, or us if we own this object
+        if (m_photonView.isMine)
+        {
+            RPC_Bounce(force);
+        }
+        else
+        {
+            //RPC_Bounce(force);
+            try
+            {
+                m_photonView.RPC("RPC_Bounce", m_photonView.owner, force);
+            }
+            catch { }
+        }
+    }
+
+    float m_timeSinceBounce = 0;
+    float m_bounceCooldown = 0.2f;
+
+    [PunRPC]
+    public void RPC_Bounce(Vector3 force)
+    {
+        if (m_timeSinceBounce + m_bounceCooldown < Time.time)
+        {
+            m_bounceCooldown = Time.time;
+            m_body.velocity = Vector3.zero;
+            m_body.AddForce(force);
         }
     }
 

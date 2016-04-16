@@ -27,7 +27,7 @@ public class BeetleAttackSpot : MonoBehaviour
         BeetleDamageSpot damageSpot = coll.collider.gameObject.GetComponent<BeetleDamageSpot>();
         if (damageSpot != null && damageSpot.m_beetleBase != null)
         {
-            // we don't apply damage we caused unless it is to a bot
+            // we don't apply damage we caused
             if (!m_beetleBase.m_photonView.isMine)
             {
                 // we didn't cause this damage
@@ -46,6 +46,11 @@ public class BeetleAttackSpot : MonoBehaviour
                     damageSpot.m_beetleBase.ApplyDamage(m_beetleBase);
                 }
             }
+            else if(damageSpot.m_beetleBase.tag == "Bot")
+            {
+                // this was done to a bot by a locally owned beetle
+                damageSpot.m_beetleBase.ApplyDamage(m_beetleBase);
+            }
         }
         else
         {
@@ -57,8 +62,7 @@ public class BeetleAttackSpot : MonoBehaviour
                 Vector3 vectorToAttack = (transform.position - coll.collider.transform.position).normalized;
                 attackerForceVector = vectorToAttack * m_beetleBase.m_bounceAfterHit;
 
-                m_beetleBase.m_body.velocity = Vector3.zero;
-                m_beetleBase.m_body.AddForce(attackerForceVector);
+                m_beetleBase.Bounce(attackerForceVector);
             }
         }
     }
