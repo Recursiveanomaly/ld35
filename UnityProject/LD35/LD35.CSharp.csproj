@@ -141,6 +141,9 @@
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
+    <Compile Include="Assets\Scripts\BeetleAttackSpot.cs" />
+    <Compile Include="Assets\Scripts\BeetleBase.cs" />
+    <Compile Include="Assets\Scripts\BeetleDamageSpot.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\RoomSetup.cs" />
   </ItemGroup>

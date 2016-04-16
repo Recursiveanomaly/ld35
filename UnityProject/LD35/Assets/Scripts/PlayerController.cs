@@ -3,9 +3,11 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    public float m_speed;
+    public float m_forwardSpeed;
+    public float m_backwordSpeed;
     public float m_turnSpeed;
     public float m_jumpForce;
+    public float m_jumpCooldown;
 
     Rigidbody2D m_body;
     PhotonView m_photonView;
@@ -46,20 +48,18 @@ public class PlayerController : MonoBehaviour
         {
             eulerRotation.z += m_turnSpeed;
         }
-        
-        // turn this off for now
-        m_speed = 0;
-        if (Input.GetAxisRaw("Vertical") > 0.5f)
+
+        // forward motion
+        if (m_body.velocity.magnitude < m_forwardSpeed)
         {
-            movementVector.y = m_speed;
-        }
-        else if (Input.GetAxisRaw("Vertical") < -0.5f)
-        {
-            movementVector.y = -m_speed;
-        }
-        else
-        {
-            movementVector.y = 0;
+            if (Input.GetAxisRaw("Vertical") > 0.5f)
+            {
+                movementVector.y = m_forwardSpeed;
+            }
+            else if (Input.GetAxisRaw("Vertical") < -0.5f)
+            {
+                movementVector.y = -m_backwordSpeed;
+            }
         }
 
         // jump!
