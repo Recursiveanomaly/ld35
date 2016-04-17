@@ -24,14 +24,14 @@ public class BeetleBase : MonoBehaviour
     {
         get
         {
-            return 1;
+            return 60;
         }
     }
     public float m_turnSpeed
     {
         get
         {
-            return Mathf.Max(3, GetHeadDef().m_turnSpeed + GetThoraxDef().m_turnSpeed + GetAbdomenDef().m_turnSpeed + GetLegDef().m_turnSpeed);
+            return Mathf.Max(3, GetHeadDef().m_turnSpeed + GetThoraxDef().m_turnSpeed + GetAbdomenDef().m_turnSpeed + GetLegDef().m_turnSpeed) * 60;
         }
     }
     public float m_jumpForce
@@ -148,7 +148,7 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayJumpSFX()
     {
-        if (m_photonView == null || !m_photonView.isMine) return;
+        if (m_photonView == null || !m_photonView.isMine || gameObject.tag == "Bot") return;
         if (m_jumpClip != null)
         {
             AudioSource.PlayClipAtPoint(m_jumpClip, transform.position, 0.5f);
@@ -159,32 +159,47 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayCounterSpinSFX()
     {
-        if (m_photonView == null || !m_photonView.isMine) return;
+        if (m_photonView == null || !m_photonView.isMine || gameObject.tag == "Bot") return;
         if (m_counterTurnClip != null)
         {
             m_turnAudioSource.volume = 0.25f;
             m_turnAudioSource.clip = m_counterTurnClip;
             m_turnAudioSource.Play();
+            m_stopColldown = float.MaxValue;
         }
     }
 
     public void PlayClockSpinSFX()
     {
-        if (m_photonView == null || !m_photonView.isMine) return;
+        if (m_photonView == null || !m_photonView.isMine || gameObject.tag == "Bot") return;
         if (m_clockTurnClip != null && !m_turnAudioSource.isPlaying)
         {
             m_turnAudioSource.volume = 0.25f;
             m_turnAudioSource.clip = m_clockTurnClip;
             m_turnAudioSource.Play();
+            m_stopColldown = float.MaxValue;
         }
     }
 
+    float m_stopColldown = float.MaxValue;
+    float m_stopColldownMax = 0.5f;
     public void StopSpinSFX()
     {
-        if (m_photonView == null || !m_photonView.isMine) return;
+        if (m_photonView == null || !m_photonView.isMine || gameObject.tag == "Bot") return;
+        if (m_stopColldown == float.MaxValue)
+        {
+            m_stopColldown = m_stopColldownMax;
+        }
         if (m_turnAudioSource.isPlaying)
         {
-            m_turnAudioSource.Stop();
+            if (m_stopColldown < 0)
+            {
+                m_turnAudioSource.Stop();
+            }
+            else
+            {
+                m_stopColldown -= Time.deltaTime;
+            }
         }
     }
 

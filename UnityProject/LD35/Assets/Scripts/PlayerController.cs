@@ -41,12 +41,12 @@ public class PlayerController : MonoBehaviour
         // rotate using left/right
         if (Input.GetAxisRaw("Horizontal") > 0.5f)
         {
-            eulerRotation.z -= m_beetleBase.m_turnSpeed;
+            eulerRotation.z -= m_beetleBase.m_turnSpeed * Time.deltaTime;
             m_beetleBase.PlayTurnRightAnimation();
         }
         else if (Input.GetAxisRaw("Horizontal") < -0.5f)
         {
-            eulerRotation.z += m_beetleBase.m_turnSpeed;
+            eulerRotation.z += m_beetleBase.m_turnSpeed * Time.deltaTime;
             m_beetleBase.PlayTurnLeftAnimation();
         }
         else
@@ -54,25 +54,16 @@ public class PlayerController : MonoBehaviour
             m_beetleBase.StopSpinSFX();
         }
 
-        // forward motion
-        if (m_body.velocity.magnitude < m_beetleBase.m_forwardSpeed)
-        {
-            if (Input.GetAxisRaw("Vertical") > 0.5f)
-            {
-                movementVector.y = m_beetleBase.m_forwardSpeed;
-            }
-            else if (Input.GetAxisRaw("Vertical") < -0.5f)
-            {
-                movementVector.y = -m_beetleBase.m_backSpeed;
-            }
-        }
-
         // jump!
-        if(Input.GetButtonDown("Jump") && m_beetleBase.m_lastJumpTime + m_beetleBase.m_jumpCooldown < Time.time)
+        if((Input.GetButtonDown("Jump") || Input.GetAxisRaw("Vertical") > 0.5f) && m_beetleBase.m_lastJumpTime + m_beetleBase.m_jumpCooldown < Time.time)
         {
             forceVector.y += m_beetleBase.m_jumpForce;
             m_beetleBase.m_lastJumpTime = Time.time;
             m_beetleBase.PlayJumpAnimation();
+        }
+        else if (Input.GetAxisRaw("Vertical") < -0.5f)
+        {
+            movementVector.y = -m_beetleBase.m_backSpeed * Time.deltaTime;
         }
 
         // rotate the movement and force vector to the forward facing direction
