@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // jump!
-        if((Input.GetButtonDown("Jump") || Input.GetAxisRaw("Vertical") > 0.5f) && m_beetleBase.m_lastJumpTime + m_beetleBase.m_jumpCooldown < Time.time)
+        if((Input.GetButton("Jump") || Input.GetAxisRaw("Vertical") > 0.5f) && m_beetleBase.m_lastJumpTime + m_beetleBase.m_jumpCooldown < Time.time)
         {
             forceVector.y += m_beetleBase.m_jumpForce;
             m_beetleBase.m_lastJumpTime = Time.time;

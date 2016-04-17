@@ -132,6 +132,15 @@ public class ExcelReader
                                     }
                                     else Debug.Log("Expected Boolean, Don't know how to parse type: " + data.GetType() + ", value: " + data);
                                 }
+                                else if(expectedType.Name.Equals("Single"))
+                                {
+                                    if(data is Double)
+                                    {
+                                        string s = data.ToString();
+                                        propertyInfo.SetValue(newDef, Single.Parse(s), null);
+                                    }
+                                    else Debug.Log("Expected Single, Don't know how to parse type: " + data.GetType() + ", value: " + data);
+                                }
                                 else if(data is DBNull)
                                 {
                                     // do nothing

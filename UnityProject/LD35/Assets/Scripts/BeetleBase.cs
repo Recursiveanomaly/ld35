@@ -193,7 +193,10 @@ public class BeetleBase : MonoBehaviour
         m_photonView = GetComponent<PhotonView>();
         m_body = GetComponent<Rigidbody2D>();
         m_turnAudioSource = gameObject.AddComponent<AudioSource>();
+    }
 
+    void Start()
+    {
         // randomize the name
         int nameID;
         BeetleNameDef nameDef = StaticData.Instance.m_beetleNames.GetRandomStaticDef(out nameID);
@@ -220,7 +223,21 @@ public class BeetleBase : MonoBehaviour
         LegPartDef legDef = StaticData.Instance.m_legs.GetRandomStaticDef(out m_legDefID);
         if (legDef != null) SetBodyPart(eBodyPartType.kLeg, legDef.m_assetName);
 
+        // read from the values to setup inspector, bleh
+        float back = m_backSpeed;
+        float turn = m_turnSpeed;
+        float jumpForce = m_jumpForce;
+        float jumpCooldown = m_jumpCooldown;
+        int damage = m_damage;
+
         m_health = m_maxHealth;
+
+        BeetleMaster.Instance.BeetleCreated(this);
+    }
+
+    void OnDestroy()
+    {
+        BeetleMaster.Instance.BeetleDied(this);
     }
 
     HeadPartDef GetHeadDef()
@@ -230,17 +247,17 @@ public class BeetleBase : MonoBehaviour
 
     ThoraxPartDef GetThoraxDef()
     {
-        return StaticData.Instance.m_thoraces.GetStaticDef(m_headDefID);
+        return StaticData.Instance.m_thoraces.GetStaticDef(m_thoraxDefID);
     }
 
     AbdomenPartDef GetAbdomenDef()
     {
-        return StaticData.Instance.m_abdomens.GetStaticDef(m_headDefID);
+        return StaticData.Instance.m_abdomens.GetStaticDef(m_abdomenDefID);
     }
 
     LegPartDef GetLegDef()
     {
-        return StaticData.Instance.m_legs.GetStaticDef(m_headDefID);
+        return StaticData.Instance.m_legs.GetStaticDef(m_legDefID);
     }
 
     public void PlayJumpSFX()
@@ -298,16 +315,6 @@ public class BeetleBase : MonoBehaviour
                 m_stopColldown -= Time.deltaTime;
             }
         }
-    }
-
-    void Start()
-    {
-        BeetleMaster.Instance.BeetleCreated(this);
-    }
-
-    void OnDestroy()
-    {
-        BeetleMaster.Instance.BeetleDied(this);
     }
 
     float m_timeSinceDamage = 0;

@@ -45,7 +45,7 @@ public class ThoraxPartDef : StaticDataDef
         get; set;
     }
 
-    public int m_jumpCooldown
+    public float m_jumpCooldown
     {
         get; set;
     }
