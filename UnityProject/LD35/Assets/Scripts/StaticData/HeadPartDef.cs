@@ -39,6 +39,16 @@ public class HeadPartDef : StaticDataDef
     {
         get; set;
     }
+
+    public int m_backSpeed
+    {
+        get; set;
+    }
+
+    public int m_jumpCooldown
+    {
+        get; set;
+    }
 }
 
 [Serializable]

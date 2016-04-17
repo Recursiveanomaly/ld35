@@ -150,6 +150,46 @@ public class BotController : MonoBehaviour
 
     void MoveTorwardsTarget()
     {
+        Vector2 forceVector = Vector3.zero;
+        Vector3 eulerRotation = transform.localRotation.eulerAngles;
 
+        if (m_beetleBase.m_jumpCooldown + m_beetleBase.m_lastJumpTime + m_jumpWaitAI < Time.time)
+        {
+            // jump
+            forceVector.y += m_beetleBase.m_jumpForce;
+            m_beetleBase.m_lastJumpTime = Time.time;
+            m_jumpWaitAI = UnityEngine.Random.Range(0, m_jumpDelayMax);
+            m_beetleBase.PlayJumpAnimation();
+        }
+
+        // rotate  torward target
+        if (Mathf.Abs(eulerRotation.z - m_targetIdleRotation) < 10f)
+        {
+            m_waitTimeAfterIdleRotate -= Time.deltaTime;
+            if (m_waitTimeAfterIdleRotate < 0)
+            {
+                // new target
+                m_targetIdleRotation = UnityEngine.Random.Range(0, 360);
+                m_waitTimeAfterIdleRotate = UnityEngine.Random.Range(0, m_maxWaitTimeAfterIdleRotate);
+            }
+        }
+        else
+        {
+            if (eulerRotation.z < m_targetIdleRotation)
+            {
+                eulerRotation.z += m_beetleBase.m_turnSpeed * Time.deltaTime * m_idleTurnSlow;
+            }
+            else
+            {
+                eulerRotation.z -= m_beetleBase.m_turnSpeed * Time.deltaTime * m_idleTurnSlow;
+            }
+        }
+
+        // rotate the movement and force vector to the forward facing direction
+        Quaternion facingRotationQuaternion = Quaternion.Euler(eulerRotation);
+        forceVector = facingRotationQuaternion * forceVector;
+
+        transform.localRotation = Quaternion.Euler(eulerRotation);
+        m_body.AddForce(forceVector);
     }
 }

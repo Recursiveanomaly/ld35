@@ -39,6 +39,16 @@ public class AbdomenPartDef : StaticDataDef
     {
         get; set;
     }
+
+    public int m_backSpeed
+    {
+        get; set;
+    }
+
+    public int m_jumpCooldown
+    {
+        get; set;
+    }
 }
 
 [Serializable]

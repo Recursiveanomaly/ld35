@@ -13,17 +13,18 @@ public class BeetleBase : MonoBehaviour
         kLeg
     }
 
-    public float m_forwardSpeed
-    {
-        get
-        {
-            return 0;
-        }
-    }
     public float m_backSpeed
     {
         get
         {
+            HeadPartDef head = GetHeadDef();
+            ThoraxPartDef thorax = GetThoraxDef();
+            AbdomenPartDef abdomen = GetAbdomenDef();
+            LegPartDef leg = GetLegDef();
+            if (head != null && thorax != null && abdomen != null && leg != null)
+            {
+                return Mathf.Max(60, head.m_backSpeed + thorax.m_backSpeed + abdomen.m_backSpeed + leg.m_backSpeed);
+            }
             return 60;
         }
     }
@@ -31,35 +32,75 @@ public class BeetleBase : MonoBehaviour
     {
         get
         {
-            return Mathf.Max(3, GetHeadDef().m_turnSpeed + GetThoraxDef().m_turnSpeed + GetAbdomenDef().m_turnSpeed + GetLegDef().m_turnSpeed) * 60;
+            HeadPartDef head = GetHeadDef();
+            ThoraxPartDef thorax = GetThoraxDef();
+            AbdomenPartDef abdomen = GetAbdomenDef();
+            LegPartDef leg = GetLegDef();
+            if (head != null && thorax != null && abdomen != null && leg != null)
+            {
+                return Mathf.Max(120, head.m_turnSpeed + thorax.m_turnSpeed + abdomen.m_turnSpeed + leg.m_turnSpeed);
+            }
+            return 120;
         }
     }
     public float m_jumpForce
     {
         get
         {
-            return Mathf.Max(700, GetHeadDef().m_jumpForce + GetThoraxDef().m_jumpForce + GetAbdomenDef().m_jumpForce + GetLegDef().m_jumpForce);
+            HeadPartDef head = GetHeadDef();
+            ThoraxPartDef thorax = GetThoraxDef();
+            AbdomenPartDef abdomen = GetAbdomenDef();
+            LegPartDef leg = GetLegDef();
+            if (head != null && thorax != null && abdomen != null && leg != null)
+            {
+                return Mathf.Max(600, head.m_jumpForce + thorax.m_jumpForce + abdomen.m_jumpForce + leg.m_jumpForce);
+            }
+            return 600;
         }
     }
     public float m_jumpCooldown
     {
         get
         {
-            return 0.5f;
+            HeadPartDef head = GetHeadDef();
+            ThoraxPartDef thorax = GetThoraxDef();
+            AbdomenPartDef abdomen = GetAbdomenDef();
+            LegPartDef leg = GetLegDef();
+            if (head != null && thorax != null && abdomen != null && leg != null)
+            {
+                return Mathf.Max(0, head.m_jumpCooldown + thorax.m_jumpCooldown + abdomen.m_jumpCooldown + leg.m_jumpCooldown);
+            }
+            return 0;
         }
     }
     public int m_maxHealth
     {
         get
         {
-            return GetHeadDef().m_health + GetThoraxDef().m_health + GetAbdomenDef().m_health + GetLegDef().m_health;
+            HeadPartDef head = GetHeadDef();
+            ThoraxPartDef thorax = GetThoraxDef();
+            AbdomenPartDef abdomen = GetAbdomenDef();
+            LegPartDef leg = GetLegDef();
+            if (head != null && thorax != null && abdomen != null && leg != null)
+            {
+                return Mathf.Max(20, head.m_health + thorax.m_health + abdomen.m_health + leg.m_health);
+            }
+            return 20;
         }
     }
     public int m_damage
     {
         get
         {
-            return GetHeadDef().m_damage + GetThoraxDef().m_damage + GetAbdomenDef().m_damage + GetLegDef().m_damage;
+            HeadPartDef head = GetHeadDef();
+            ThoraxPartDef thorax = GetThoraxDef();
+            AbdomenPartDef abdomen = GetAbdomenDef();
+            LegPartDef leg = GetLegDef();
+            if (head != null && thorax != null && abdomen != null && leg != null)
+            {
+                return Mathf.Max(4, head.m_damage + thorax.m_damage + abdomen.m_damage + leg.m_damage);
+            }
+            return 4;
         }
     }
 
