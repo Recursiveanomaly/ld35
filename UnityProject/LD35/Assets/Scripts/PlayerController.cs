@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D m_body;
     PhotonView m_photonView;
     public BeetleBase m_beetleBase;
-    
+
+    Vector3 m_cameraOffset = new Vector3(0, 0, -20);
+
     void Awake()
     {
         m_body = GetComponent<Rigidbody2D>();
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
+        Camera.main.transform.position = transform.position + m_cameraOffset;
 
         UpdateMovement();
     }

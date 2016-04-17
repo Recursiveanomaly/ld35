@@ -1,111 +1,537 @@
 
 Beetle.png
-size: 512,512
+size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 beetle1-abdomen
-  rotate: false
-  xy: 2, 245
+  rotate: true
+  xy: 299, 316
   size: 207, 259
   orig: 240, 382
   offset: 32, 0
   index: -1
 beetle1-head
   rotate: false
-  xy: 211, 448
+  xy: 890, 171
   size: 131, 56
   orig: 240, 382
   offset: 49, 319
   index: -1
 beetle1-legBL
   rotate: false
-  xy: 2, 58
+  xy: 299, 142
   size: 25, 78
   orig: 240, 382
   offset: 24, 59
   index: -1
 beetle1-legBLd
-  rotate: false
-  xy: 229, 307
+  rotate: true
+  xy: 2, 4
   size: 11, 70
   orig: 240, 382
   offset: 28, 2
   index: -1
 beetle1-legBR
   rotate: false
-  xy: 131, 165
+  xy: 326, 142
   size: 25, 78
   orig: 240, 382
   offset: 193, 64
   index: -1
 beetle1-legBRd
   rotate: false
-  xy: 211, 306
+  xy: 411, 146
   size: 16, 71
   orig: 240, 382
   offset: 204, 2
   index: -1
 beetle1-legFL
-  rotate: false
-  xy: 29, 72
+  rotate: true
+  xy: 135, 602
   size: 33, 64
   orig: 240, 382
   offset: 27, 266
   index: -1
 beetle1-legFLd
   rotate: false
-  xy: 2, 2
+  xy: 994, 43
   size: 23, 54
   orig: 240, 382
   offset: 18, 323
   index: -1
 beetle1-legFR
-  rotate: false
-  xy: 158, 178
+  rotate: true
+  xy: 201, 605
   size: 30, 65
   orig: 240, 382
   offset: 171, 269
   index: -1
 beetle1-legFRd
-  rotate: false
-  xy: 247, 390
+  rotate: true
+  xy: 725, 105
   size: 29, 56
   orig: 240, 382
   offset: 183, 326
   index: -1
 beetle1-legML
-  rotate: false
-  xy: 211, 379
+  rotate: true
+  xy: 66, 601
   size: 34, 67
   orig: 240, 382
   offset: 6, 149
   index: -1
-beetle1-legMLd
-  rotate: false
-  xy: 64, 73
-  size: 19, 63
-  orig: 240, 382
-  offset: 0, 94
-  index: -1
 beetle1-legMR
   rotate: true
-  xy: 344, 468
+  xy: 2, 599
   size: 36, 62
   orig: 240, 382
   offset: 198, 156
   index: -1
 beetle1-legMRd
   rotate: true
-  xy: 408, 487
+  xy: 268, 618
   size: 17, 66
   orig: 240, 382
   offset: 223, 101
   index: -1
+beetle2-abdomen
+  rotate: true
+  xy: 736, 774
+  size: 248, 284
+  orig: 410, 482
+  offset: 46, 0
+  index: -1
+beetle2-head
+  rotate: false
+  xy: 520, 4
+  size: 203, 128
+  orig: 410, 482
+  offset: 95, 354
+  index: -1
+beetle2-legBL
+  rotate: true
+  xy: 890, 229
+  size: 55, 132
+  orig: 410, 482
+  offset: 65, 66
+  index: -1
+beetle2-legBLd
+  rotate: false
+  xy: 353, 143
+  size: 56, 74
+  orig: 410, 482
+  offset: 30, 2
+  index: -1
+beetle2-legFLd
+  rotate: true
+  xy: 809, 63
+  size: 71, 79
+  orig: 410, 482
+  offset: 0, 383
+  index: -1
+beetle2-legFR
+  rotate: true
+  xy: 448, 222
+  size: 92, 109
+  orig: 410, 482
+  offset: 256, 287
+  index: -1
+beetle2-legMR
+  rotate: true
+  xy: 448, 134
+  size: 86, 108
+  orig: 410, 482
+  offset: 272, 172
+  index: -1
+beetle2-legMRd
+  rotate: false
+  xy: 809, 4
+  size: 63, 57
+  orig: 410, 482
+  offset: 346, 130
+  index: -1
+beetle3-abdomen
+  rotate: true
+  xy: 2, 637
+  size: 188, 560
+  orig: 348, 560
+  offset: 111, 0
+  index: -1
+beetle3-legFL
+  rotate: true
+  xy: 890, 4
+  size: 93, 102
+  orig: 348, 560
+  offset: 24, 313
+  index: -1
+beetle3-legFR
+  rotate: false
+  xy: 725, 3
+  size: 82, 94
+  orig: 348, 560
+  offset: 226, 315
+  index: -1
+beetle4-abdomen
+  rotate: true
+  xy: 721, 286
+  size: 235, 297
+  orig: 518, 758
+  offset: 145, 81
+  index: -1
+beetle4-head
+  rotate: false
+  xy: 732, 523
+  size: 283, 249
+  orig: 518, 758
+  offset: 115, 504
+  index: -1
+beetle4-legBLd
+  rotate: false
+  xy: 389, 219
+  size: 57, 95
+  orig: 518, 758
+  offset: 102, 4
+  index: -1
+beetle4-legML
+  rotate: true
+  xy: 560, 369
+  size: 89, 156
+  orig: 518, 758
+  offset: 76, 220
+  index: -1
+beetle4-legMLd
+  rotate: true
+  xy: 118, 524
+  size: 72, 113
+  orig: 518, 758
+  offset: 28, 128
+  index: -1
+beetle4-legMR
+  rotate: true
+  xy: 564, 598
+  size: 79, 160
+  orig: 518, 758
+  offset: 369, 215
+  index: -1
+beetle4-legMRd
+  rotate: true
+  xy: 2, 524
+  size: 72, 114
+  orig: 518, 758
+  offset: 441, 129
+  index: -1
+beetle4-thorax
+  rotate: true
+  xy: 560, 142
+  size: 225, 153
+  orig: 518, 758
+  offset: 150, 365
+  index: -1
+beetle5-abdomen
+  rotate: false
+  xy: 2, 17
+  size: 295, 504
+  orig: 732, 778
+  offset: 183, 0
+  index: -1
+beetle5-head
+  rotate: false
+  xy: 2, 827
+  size: 732, 195
+  orig: 732, 778
+  offset: 0, 583
+  index: -1
+beetle5-legBLd
+  rotate: false
+  xy: 448, 3
+  size: 70, 129
+  orig: 732, 778
+  offset: 160, 3
+  index: -1
+beetle5-legBR
+  rotate: true
+  xy: 339, 538
+  size: 97, 221
+  orig: 732, 778
+  offset: 448, 106
+  index: -1
+beetle5-legBRd
+  rotate: true
+  xy: 890, 99
+  size: 70, 128
+  orig: 732, 778
+  offset: 523, 3
+  index: -1
+beetle5-legFL
+  rotate: false
+  xy: 564, 679
+  size: 166, 146
+  orig: 732, 778
+  offset: 148, 532
+  index: -1
+beetle5-legFLd
+  rotate: false
+  xy: 233, 525
+  size: 104, 71
+  orig: 732, 778
+  offset: 58, 662
+  index: -1
+beetle5-legFR
+  rotate: false
+  xy: 715, 136
+  size: 173, 148
+  orig: 732, 778
+  offset: 410, 532
+  index: -1
+beetle5-legML
+  rotate: true
+  xy: 299, 4
+  size: 136, 147
+  orig: 732, 778
+  offset: 140, 343
+  index: -1
+beetle5-legMLd
+  rotate: false
+  xy: 299, 222
+  size: 88, 92
+  orig: 732, 778
+  offset: 77, 274
+  index: -1
+beetle5-legMR
+  rotate: true
+  xy: 562, 460
+  size: 136, 157
+  orig: 732, 778
+  offset: 463, 327
+  index: -1
+
+Beetle2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+beetle1-legMLd
+  rotate: false
+  xy: 165, 498
+  size: 19, 63
+  orig: 240, 382
+  offset: 0, 94
+  index: -1
 beetle1-thorax
   rotate: false
-  xy: 2, 138
+  xy: 739, 913
   size: 127, 105
   orig: 240, 382
   offset: 53, 229
+  index: -1
+beetle2-legBR
+  rotate: false
+  xy: 96, 492
+  size: 67, 127
+  orig: 410, 482
+  offset: 284, 68
+  index: -1
+beetle2-legBRd
+  rotate: false
+  xy: 874, 859
+  size: 56, 67
+  orig: 410, 482
+  offset: 324, 12
+  index: -1
+beetle2-legFL
+  rotate: false
+  xy: 96, 384
+  size: 101, 106
+  orig: 410, 482
+  offset: 46, 285
+  index: -1
+beetle2-legFRd
+  rotate: false
+  xy: 539, 822
+  size: 71, 77
+  orig: 410, 482
+  offset: 324, 388
+  index: -1
+beetle2-legML
+  rotate: false
+  xy: 69, 268
+  size: 80, 114
+  orig: 410, 482
+  offset: 48, 161
+  index: -1
+beetle2-legMLd
+  rotate: false
+  xy: 932, 866
+  size: 57, 60
+  orig: 410, 482
+  offset: 0, 125
+  index: -1
+beetle2-thorax
+  rotate: false
+  xy: 868, 928
+  size: 139, 90
+  orig: 410, 482
+  offset: 131, 274
+  index: -1
+beetle3-head
+  rotate: false
+  xy: 2, 826
+  size: 208, 192
+  orig: 348, 560
+  offset: 65, 368
+  index: -1
+beetle3-legBL
+  rotate: false
+  xy: 151, 261
+  size: 44, 121
+  orig: 348, 560
+  offset: 85, 72
+  index: -1
+beetle3-legBLd
+  rotate: true
+  xy: 69, 228
+  size: 38, 80
+  orig: 348, 560
+  offset: 62, 3
+  index: -1
+beetle3-legBR
+  rotate: false
+  xy: 126, 630
+  size: 65, 194
+  orig: 348, 560
+  offset: 224, 1
+  index: -1
+beetle3-legBRd
+  rotate: true
+  xy: 71, 66
+  size: 51, 81
+  orig: 348, 560
+  offset: 254, 2
+  index: -1
+beetle3-legFLd
+  rotate: true
+  xy: 874, 817
+  size: 40, 67
+  orig: 348, 560
+  offset: 0, 396
+  index: -1
+beetle3-legFRd
+  rotate: true
+  xy: 2, 2
+  size: 62, 68
+  orig: 348, 560
+  offset: 285, 393
+  index: -1
+beetle3-legML
+  rotate: true
+  xy: 702, 841
+  size: 70, 98
+  orig: 348, 560
+  offset: 51, 160
+  index: -1
+beetle3-legMLd
+  rotate: false
+  xy: 943, 800
+  size: 50, 64
+  orig: 348, 560
+  offset: 19, 109
+  index: -1
+beetle3-legMR
+  rotate: false
+  xy: 802, 819
+  size: 70, 92
+  orig: 348, 560
+  offset: 230, 172
+  index: -1
+beetle3-legMRd
+  rotate: false
+  xy: 165, 563
+  size: 51, 65
+  orig: 348, 560
+  offset: 281, 122
+  index: -1
+beetle3-thorax
+  rotate: false
+  xy: 598, 914
+  size: 139, 104
+  orig: 348, 560
+  offset: 102, 270
+  index: -1
+beetle4-legBL
+  rotate: false
+  xy: 2, 208
+  size: 65, 182
+  orig: 518, 758
+  offset: 115, 87
+  index: -1
+beetle4-legBR
+  rotate: true
+  xy: 212, 842
+  size: 61, 183
+  orig: 518, 758
+  offset: 356, 74
+  index: -1
+beetle4-legBRd
+  rotate: true
+  xy: 72, 3
+  size: 61, 89
+  orig: 518, 758
+  offset: 366, 6
+  index: -1
+beetle4-legFL
+  rotate: false
+  xy: 2, 621
+  size: 122, 203
+  orig: 518, 758
+  offset: 47, 435
+  index: -1
+beetle4-legFLd
+  rotate: false
+  xy: 2, 66
+  size: 67, 140
+  orig: 518, 758
+  offset: 2, 607
+  index: -1
+beetle4-legFR
+  rotate: true
+  xy: 212, 905
+  size: 113, 207
+  orig: 518, 758
+  offset: 357, 433
+  index: -1
+beetle4-legFRd
+  rotate: true
+  xy: 397, 834
+  size: 65, 140
+  orig: 518, 758
+  offset: 447, 615
+  index: -1
+beetle5-legBL
+  rotate: false
+  xy: 2, 392
+  size: 92, 227
+  orig: 732, 778
+  offset: 199, 100
+  index: -1
+beetle5-legFRd
+  rotate: true
+  xy: 71, 119
+  size: 107, 76
+  orig: 732, 778
+  offset: 570, 659
+  index: -1
+beetle5-legMRd
+  rotate: false
+  xy: 612, 828
+  size: 88, 84
+  orig: 732, 778
+  offset: 581, 276
+  index: -1
+beetle5-thorax
+  rotate: false
+  xy: 421, 901
+  size: 175, 117
+  orig: 732, 778
+  offset: 278, 486
   index: -1
