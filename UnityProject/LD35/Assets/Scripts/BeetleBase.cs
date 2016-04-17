@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Spine.Unity;
 
 public class BeetleBase : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class BeetleBase : MonoBehaviour
 
     public float m_bounceAfterBeingHit = 1f;
     public float m_bounceAfterHit = 1f;
+
+    public SkeletonAnimation m_skeleton;
 
     [System.NonSerialized]
     public PhotonView m_photonView;
@@ -23,6 +26,33 @@ public class BeetleBase : MonoBehaviour
     }
 
     float m_timeSinceDamage = 0;
+
+    public void PlayJumpAnimation()
+    {
+        if (m_skeleton != null && m_skeleton.state != null)
+        {
+            m_skeleton.state.SetAnimation(0, "jump", false);
+            m_skeleton.state.AddAnimation(0, "idle", true, 0);
+        }
+    }
+
+    public void PlayTurnLeftAnimation()
+    {
+        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "turnLeft")
+        {
+            m_skeleton.state.SetAnimation(0, "turnLeft", false);
+            m_skeleton.state.AddAnimation(0, "idle", true, 0);
+        }
+    }
+
+    public void PlayTurnRightAnimation()
+    {
+        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "turnRight")
+        {
+            m_skeleton.state.SetAnimation(0, "turnRight", false);
+            m_skeleton.state.AddAnimation(0, "idle", true, 0);
+        }
+    }
 
     public void ApplyDamage(BeetleBase attackingBeetle)
     {

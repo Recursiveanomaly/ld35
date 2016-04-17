@@ -122,12 +122,43 @@
     <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\Views\PhotonRigidbody2DViewEditor.cs" />
     <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\Views\PhotonRigidbodyViewEditor.cs" />
     <Compile Include="Assets\Photon Unity Networking\Editor\PhotonNetwork\Views\PhotonTransformViewEditor.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Asset Types\Editor\AtlasAssetInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Asset Types\Editor\SkeletonDataAssetInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\AssetDatabaseAvailabilityDetector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\BoneFollowerInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\Menus.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\SkeletonAnimationInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\SkeletonAnimatorInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\SkeletonBaker.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\SkeletonRendererInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\SpineAttributeDrawers.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\SpineEditorUtilities.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Editor\SpineInspectorUtility.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Modules\BoundingBoxFollower\Editor\BoundingBoxFollowerInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Modules\CustomMaterials\Editor\SkeletonRendererCustomMaterialsInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Modules\Ragdoll\Editor\SkeletonRagdoll2DInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Modules\Ragdoll\Editor\SkeletonRagdollInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\Editor\SkeletonGraphicInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonRenderSeparator\Editor\SkeletonPartsRendererInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonRenderSeparator\Editor\SkeletonRenderSeparatorInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\Editor\SkeletonUtilityBoneInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\Editor\SkeletonUtilityInspector.cs" />
+    <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\Editor\SkeletonUtilitySubmeshRendererInspector.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Art\Beetle\Beetle.atlas.txt" />
     <None Include="Assets\Photon Unity Networking\Plugins\Photon3Unity3D.xml" />
     <None Include="Assets\Photon Unity Networking\Plugins\release_history.txt" />
     <None Include="Assets\Photon Unity Networking\changelog.txt" />
     <None Include="Assets\Photon Unity Networking\readme.txt" />
+    <None Include="Assets\Spine\spine-unity\Editor\Resources\SpineAssetDatabaseMarker.txt" />
+    <None Include="Assets\Spine\spine-unity\Modules\CustomMaterials\readme.txt" />
+    <None Include="Assets\Spine\spine-unity\Modules\Ghost\Shaders\SkeletonGhost.shader" />
+    <None Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\Shaders\SkeletonGraphic.shader" />
+    <None Include="Assets\Spine\spine-unity\Shaders\Bones.shader" />
+    <None Include="Assets\Spine\spine-unity\Shaders\HiddenPass.shader" />
+    <None Include="Assets\Spine\spine-unity\Shaders\Skeleton.shader" />
+    <None Include="Assets\Spine\spine-unity\Shaders\SkeletonLit.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

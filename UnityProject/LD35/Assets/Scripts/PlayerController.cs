@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D m_body;
     PhotonView m_photonView;
+    public BeetleBase m_beetleBase;
     
     void Awake()
     {
@@ -45,10 +46,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") > 0.5f)
         {
             eulerRotation.z -= m_turnSpeed;
+            m_beetleBase.PlayTurnLeftAnimation();
         }
         else if (Input.GetAxisRaw("Horizontal") < -0.5f)
         {
             eulerRotation.z += m_turnSpeed;
+            m_beetleBase.PlayTurnRightAnimation();
         }
 
         // forward motion
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour
         {
             forceVector.y += m_jumpForce;
             m_lastJumpTime = Time.time;
+            m_beetleBase.PlayJumpAnimation();
         }
 
         // rotate the movement and force vector to the forward facing direction
