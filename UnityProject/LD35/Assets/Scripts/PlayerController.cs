@@ -3,12 +3,6 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    public float m_forwardSpeed;
-    public float m_backwordSpeed;
-    public float m_turnSpeed;
-    public float m_jumpForce;
-    public float m_jumpCooldown;
-
     Rigidbody2D m_body;
     PhotonView m_photonView;
     public BeetleBase m_beetleBase;
@@ -38,8 +32,6 @@ public class PlayerController : MonoBehaviour
         UpdateMovement();
     }
 
-    float m_lastJumpTime = 0;
-
     void UpdateMovement()
     {
         Vector2 movementVector = Vector3.zero;
@@ -49,33 +41,37 @@ public class PlayerController : MonoBehaviour
         // rotate using left/right
         if (Input.GetAxisRaw("Horizontal") > 0.5f)
         {
-            eulerRotation.z -= m_turnSpeed;
+            eulerRotation.z -= m_beetleBase.m_turnSpeed;
             m_beetleBase.PlayTurnRightAnimation();
         }
         else if (Input.GetAxisRaw("Horizontal") < -0.5f)
         {
-            eulerRotation.z += m_turnSpeed;
+            eulerRotation.z += m_beetleBase.m_turnSpeed;
             m_beetleBase.PlayTurnLeftAnimation();
+        }
+        else
+        {
+            m_beetleBase.StopSpinSFX();
         }
 
         // forward motion
-        if (m_body.velocity.magnitude < m_forwardSpeed)
+        if (m_body.velocity.magnitude < m_beetleBase.m_forwardSpeed)
         {
             if (Input.GetAxisRaw("Vertical") > 0.5f)
             {
-                movementVector.y = m_forwardSpeed;
+                movementVector.y = m_beetleBase.m_forwardSpeed;
             }
             else if (Input.GetAxisRaw("Vertical") < -0.5f)
             {
-                movementVector.y = -m_backwordSpeed;
+                movementVector.y = -m_beetleBase.m_backSpeed;
             }
         }
 
         // jump!
-        if(Input.GetButtonDown("Jump") && m_lastJumpTime + m_jumpCooldown < Time.time)
+        if(Input.GetButtonDown("Jump") && m_beetleBase.m_lastJumpTime + m_beetleBase.m_jumpCooldown < Time.time)
         {
-            forceVector.y += m_jumpForce;
-            m_lastJumpTime = Time.time;
+            forceVector.y += m_beetleBase.m_jumpForce;
+            m_beetleBase.m_lastJumpTime = Time.time;
             m_beetleBase.PlayJumpAnimation();
         }
 
