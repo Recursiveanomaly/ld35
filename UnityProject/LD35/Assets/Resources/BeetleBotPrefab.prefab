@@ -334,7 +334,7 @@ MonoBehaviour:
   m_bounceAfterHit: 500
   m_skeleton: {fileID: 11419828}
   m_name: 
-  m_textMesh: {fileID: 0}
+  m_textMesh: {fileID: 10242228}
 --- !u!114 &11433616
 MonoBehaviour:
   m_ObjectHideFlags: 1
