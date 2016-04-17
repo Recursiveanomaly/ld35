@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using System.Collections;
 using System;
 using Excel;
@@ -264,3 +265,4 @@ public class ExcelReader
                NumericTypes.Contains(Nullable.GetUnderlyingType(type));
     }
 }
+#endif

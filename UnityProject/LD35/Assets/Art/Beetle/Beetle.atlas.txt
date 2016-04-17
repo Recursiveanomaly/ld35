@@ -4,233 +4,135 @@ size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-beetle1-abdomen
-  rotate: true
-  xy: 299, 316
-  size: 207, 259
-  orig: 240, 382
-  offset: 32, 0
-  index: -1
-beetle1-head
-  rotate: false
-  xy: 890, 171
-  size: 131, 56
-  orig: 240, 382
-  offset: 49, 319
-  index: -1
 beetle1-legBL
-  rotate: false
-  xy: 299, 142
+  rotate: true
+  xy: 2, 8
   size: 25, 78
   orig: 240, 382
   offset: 24, 59
   index: -1
 beetle1-legBLd
   rotate: true
-  xy: 2, 4
+  xy: 335, 4
   size: 11, 70
   orig: 240, 382
   offset: 28, 2
   index: -1
 beetle1-legBR
-  rotate: false
-  xy: 326, 142
+  rotate: true
+  xy: 82, 8
   size: 25, 78
   orig: 240, 382
   offset: 193, 64
   index: -1
 beetle1-legBRd
-  rotate: false
-  xy: 411, 146
+  rotate: true
+  xy: 162, 17
   size: 16, 71
   orig: 240, 382
   offset: 204, 2
   index: -1
-beetle1-legFL
-  rotate: true
-  xy: 135, 602
-  size: 33, 64
-  orig: 240, 382
-  offset: 27, 266
-  index: -1
-beetle1-legFLd
-  rotate: false
-  xy: 994, 43
-  size: 23, 54
-  orig: 240, 382
-  offset: 18, 323
-  index: -1
 beetle1-legFR
   rotate: true
-  xy: 201, 605
+  xy: 484, 25
   size: 30, 65
   orig: 240, 382
   offset: 171, 269
   index: -1
 beetle1-legFRd
   rotate: true
-  xy: 725, 105
+  xy: 551, 263
   size: 29, 56
   orig: 240, 382
   offset: 183, 326
   index: -1
-beetle1-legML
+beetle1-legMLd
   rotate: true
-  xy: 66, 601
-  size: 34, 67
+  xy: 484, 4
+  size: 19, 63
   orig: 240, 382
-  offset: 6, 149
-  index: -1
-beetle1-legMR
-  rotate: true
-  xy: 2, 599
-  size: 36, 62
-  orig: 240, 382
-  offset: 198, 156
-  index: -1
-beetle1-legMRd
-  rotate: true
-  xy: 268, 618
-  size: 17, 66
-  orig: 240, 382
-  offset: 223, 101
+  offset: 0, 94
   index: -1
 beetle2-abdomen
-  rotate: true
-  xy: 736, 774
+  rotate: false
+  xy: 2, 35
   size: 248, 284
   orig: 410, 482
   offset: 46, 0
   index: -1
-beetle2-head
-  rotate: false
-  xy: 520, 4
-  size: 203, 128
-  orig: 410, 482
-  offset: 95, 354
-  index: -1
-beetle2-legBL
-  rotate: true
-  xy: 890, 229
-  size: 55, 132
-  orig: 410, 482
-  offset: 65, 66
-  index: -1
-beetle2-legBLd
-  rotate: false
-  xy: 353, 143
-  size: 56, 74
-  orig: 410, 482
-  offset: 30, 2
-  index: -1
-beetle2-legFLd
-  rotate: true
-  xy: 809, 63
-  size: 71, 79
-  orig: 410, 482
-  offset: 0, 383
-  index: -1
-beetle2-legFR
-  rotate: true
-  xy: 448, 222
-  size: 92, 109
-  orig: 410, 482
-  offset: 256, 287
-  index: -1
-beetle2-legMR
-  rotate: true
-  xy: 448, 134
-  size: 86, 108
-  orig: 410, 482
-  offset: 272, 172
-  index: -1
-beetle2-legMRd
-  rotate: false
-  xy: 809, 4
-  size: 63, 57
-  orig: 410, 482
-  offset: 346, 130
-  index: -1
 beetle3-abdomen
-  rotate: true
-  xy: 2, 637
+  rotate: false
+  xy: 736, 462
   size: 188, 560
   orig: 348, 560
   offset: 111, 0
   index: -1
-beetle3-legFL
-  rotate: true
-  xy: 890, 4
-  size: 93, 102
-  orig: 348, 560
-  offset: 24, 313
-  index: -1
-beetle3-legFR
+beetle3-legBL
   rotate: false
-  xy: 725, 3
-  size: 82, 94
+  xy: 977, 333
+  size: 44, 121
   orig: 348, 560
-  offset: 226, 315
+  offset: 85, 72
+  index: -1
+beetle3-legBLd
+  rotate: true
+  xy: 335, 17
+  size: 38, 80
+  orig: 348, 560
+  offset: 62, 3
+  index: -1
+beetle3-legBR
+  rotate: false
+  xy: 910, 260
+  size: 65, 194
+  orig: 348, 560
+  offset: 224, 1
+  index: -1
+beetle3-legBRd
+  rotate: true
+  xy: 252, 4
+  size: 51, 81
+  orig: 348, 560
+  offset: 254, 2
+  index: -1
+beetle3-legFLd
+  rotate: false
+  xy: 977, 264
+  size: 40, 67
+  orig: 348, 560
+  offset: 0, 396
+  index: -1
+beetle3-legMRd
+  rotate: true
+  xy: 417, 4
+  size: 51, 65
+  orig: 348, 560
+  offset: 281, 122
   index: -1
 beetle4-abdomen
   rotate: true
-  xy: 721, 286
+  xy: 252, 57
   size: 235, 297
   orig: 518, 758
   offset: 145, 81
   index: -1
 beetle4-head
   rotate: false
-  xy: 732, 523
+  xy: 551, 9
   size: 283, 249
   orig: 518, 758
   offset: 115, 504
   index: -1
-beetle4-legBLd
-  rotate: false
-  xy: 389, 219
-  size: 57, 95
-  orig: 518, 758
-  offset: 102, 4
-  index: -1
 beetle4-legML
-  rotate: true
-  xy: 560, 369
+  rotate: false
+  xy: 926, 456
   size: 89, 156
   orig: 518, 758
   offset: 76, 220
   index: -1
-beetle4-legMLd
-  rotate: true
-  xy: 118, 524
-  size: 72, 113
-  orig: 518, 758
-  offset: 28, 128
-  index: -1
-beetle4-legMR
-  rotate: true
-  xy: 564, 598
-  size: 79, 160
-  orig: 518, 758
-  offset: 369, 215
-  index: -1
-beetle4-legMRd
-  rotate: true
-  xy: 2, 524
-  size: 72, 114
-  orig: 518, 758
-  offset: 441, 129
-  index: -1
-beetle4-thorax
-  rotate: true
-  xy: 560, 142
-  size: 225, 153
-  orig: 518, 758
-  offset: 150, 365
-  index: -1
 beetle5-abdomen
   rotate: false
-  xy: 2, 17
+  xy: 2, 321
   size: 295, 504
   orig: 732, 778
   offset: 183, 0
@@ -242,68 +144,47 @@ beetle5-head
   orig: 732, 778
   offset: 0, 583
   index: -1
-beetle5-legBLd
+beetle5-legBL
   rotate: false
-  xy: 448, 3
-  size: 70, 129
+  xy: 926, 614
+  size: 92, 227
   orig: 732, 778
-  offset: 160, 3
+  offset: 199, 100
   index: -1
-beetle5-legBR
+beetle6-abdomen
   rotate: true
-  xy: 339, 538
-  size: 97, 221
-  orig: 732, 778
-  offset: 448, 106
+  xy: 299, 294
+  size: 171, 311
+  orig: 310, 480
+  offset: 76, 0
   index: -1
-beetle5-legBRd
+beetle7-abdomen
+  rotate: false
+  xy: 836, 4
+  size: 177, 254
+  orig: 458, 688
+  offset: 136, 184
+  index: -1
+beetle8-head
+  rotate: false
+  xy: 299, 467
+  size: 435, 358
+  orig: 548, 804
+  offset: 60, 446
+  index: -1
+beetle8-thorax
   rotate: true
-  xy: 890, 99
-  size: 70, 128
-  orig: 732, 778
-  offset: 523, 3
+  xy: 926, 843
+  size: 179, 96
+  orig: 548, 804
+  offset: 190, 363
   index: -1
-beetle5-legFL
-  rotate: false
-  xy: 564, 679
-  size: 166, 146
-  orig: 732, 778
-  offset: 148, 532
-  index: -1
-beetle5-legFLd
-  rotate: false
-  xy: 233, 525
-  size: 104, 71
-  orig: 732, 778
-  offset: 58, 662
-  index: -1
-beetle5-legFR
-  rotate: false
-  xy: 715, 136
-  size: 173, 148
-  orig: 732, 778
-  offset: 410, 532
-  index: -1
-beetle5-legML
+beetle9-abdomen
   rotate: true
-  xy: 299, 4
-  size: 136, 147
-  orig: 732, 778
-  offset: 140, 343
-  index: -1
-beetle5-legMLd
-  rotate: false
-  xy: 299, 222
-  size: 88, 92
-  orig: 732, 778
-  offset: 77, 274
-  index: -1
-beetle5-legMR
-  rotate: true
-  xy: 562, 460
-  size: 136, 157
-  orig: 732, 778
-  offset: 463, 327
+  xy: 612, 260
+  size: 200, 296
+  orig: 334, 478
+  offset: 72, 21
   index: -1
 
 Beetle2.png
@@ -311,227 +192,430 @@ size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-beetle1-legMLd
+beetle1-abdomen
   rotate: false
-  xy: 165, 498
-  size: 19, 63
+  xy: 2, 763
+  size: 207, 259
   orig: 240, 382
-  offset: 0, 94
+  offset: 32, 0
+  index: -1
+beetle1-head
+  rotate: false
+  xy: 528, 436
+  size: 131, 56
+  orig: 240, 382
+  offset: 49, 319
+  index: -1
+beetle1-legFL
+  rotate: true
+  xy: 469, 21
+  size: 33, 64
+  orig: 240, 382
+  offset: 27, 266
+  index: -1
+beetle1-legFLd
+  rotate: false
+  xy: 684, 573
+  size: 23, 54
+  orig: 240, 382
+  offset: 18, 323
+  index: -1
+beetle1-legML
+  rotate: true
+  xy: 345, 11
+  size: 34, 67
+  orig: 240, 382
+  offset: 6, 149
+  index: -1
+beetle1-legMR
+  rotate: false
+  xy: 680, 373
+  size: 36, 62
+  orig: 240, 382
+  offset: 198, 156
+  index: -1
+beetle1-legMRd
+  rotate: true
+  xy: 414, 2
+  size: 17, 66
+  orig: 240, 382
+  offset: 223, 101
   index: -1
 beetle1-thorax
   rotate: false
-  xy: 739, 913
+  xy: 198, 471
   size: 127, 105
   orig: 240, 382
   offset: 53, 229
   index: -1
+beetle2-head
+  rotate: true
+  xy: 2, 82
+  size: 203, 128
+  orig: 410, 482
+  offset: 95, 354
+  index: -1
+beetle2-legBL
+  rotate: true
+  xy: 550, 572
+  size: 55, 132
+  orig: 410, 482
+  offset: 65, 66
+  index: -1
+beetle2-legBLd
+  rotate: false
+  xy: 196, 287
+  size: 56, 74
+  orig: 410, 482
+  offset: 30, 2
+  index: -1
 beetle2-legBR
   rotate: false
-  xy: 96, 492
+  xy: 955, 753
   size: 67, 127
   orig: 410, 482
   offset: 284, 68
   index: -1
 beetle2-legBRd
   rotate: false
-  xy: 874, 859
+  xy: 417, 97
   size: 56, 67
   orig: 410, 482
   offset: 324, 12
   index: -1
 beetle2-legFL
   rotate: false
-  xy: 96, 384
+  xy: 196, 363
   size: 101, 106
   orig: 410, 482
   offset: 46, 285
   index: -1
+beetle2-legFLd
+  rotate: true
+  xy: 186, 9
+  size: 71, 79
+  orig: 410, 482
+  offset: 0, 383
+  index: -1
+beetle2-legFR
+  rotate: false
+  xy: 327, 468
+  size: 92, 109
+  orig: 410, 482
+  offset: 256, 287
+  index: -1
 beetle2-legFRd
   rotate: false
-  xy: 539, 822
+  xy: 607, 357
   size: 71, 77
   orig: 410, 482
   offset: 324, 388
   index: -1
 beetle2-legML
   rotate: false
-  xy: 69, 268
+  xy: 394, 352
   size: 80, 114
   orig: 410, 482
   offset: 48, 161
   index: -1
 beetle2-legMLd
-  rotate: false
-  xy: 932, 866
+  rotate: true
+  xy: 961, 603
   size: 57, 60
   orig: 410, 482
   offset: 0, 125
   index: -1
-beetle2-thorax
+beetle2-legMR
   rotate: false
-  xy: 868, 928
+  xy: 606, 247
+  size: 86, 108
+  orig: 410, 482
+  offset: 272, 172
+  index: -1
+beetle2-legMRd
+  rotate: true
+  xy: 661, 437
+  size: 63, 57
+  orig: 410, 482
+  offset: 346, 130
+  index: -1
+beetle2-thorax
+  rotate: true
+  xy: 869, 606
   size: 139, 90
   orig: 410, 482
   offset: 131, 274
   index: -1
 beetle3-head
-  rotate: false
-  xy: 2, 826
+  rotate: true
+  xy: 2, 287
   size: 208, 192
   orig: 348, 560
   offset: 65, 368
   index: -1
-beetle3-legBL
+beetle3-legFL
   rotate: false
-  xy: 151, 261
-  size: 44, 121
+  xy: 299, 364
+  size: 93, 102
   orig: 348, 560
-  offset: 85, 72
+  offset: 24, 313
   index: -1
-beetle3-legBLd
-  rotate: true
-  xy: 69, 228
-  size: 38, 80
-  orig: 348, 560
-  offset: 62, 3
-  index: -1
-beetle3-legBR
+beetle3-legFR
   rotate: false
-  xy: 126, 630
-  size: 65, 194
+  xy: 391, 166
+  size: 82, 94
   orig: 348, 560
-  offset: 224, 1
-  index: -1
-beetle3-legBRd
-  rotate: true
-  xy: 71, 66
-  size: 51, 81
-  orig: 348, 560
-  offset: 254, 2
-  index: -1
-beetle3-legFLd
-  rotate: true
-  xy: 874, 817
-  size: 40, 67
-  orig: 348, 560
-  offset: 0, 396
+  offset: 226, 315
   index: -1
 beetle3-legFRd
-  rotate: true
-  xy: 2, 2
+  rotate: false
+  xy: 656, 502
   size: 62, 68
   orig: 348, 560
   offset: 285, 393
   index: -1
 beetle3-legML
   rotate: true
-  xy: 702, 841
+  xy: 475, 146
   size: 70, 98
   orig: 348, 560
   offset: 51, 160
   index: -1
 beetle3-legMLd
   rotate: false
-  xy: 943, 800
+  xy: 417, 31
   size: 50, 64
   orig: 348, 560
   offset: 19, 109
   index: -1
 beetle3-legMR
   rotate: false
-  xy: 802, 819
+  xy: 345, 47
   size: 70, 92
   orig: 348, 560
   offset: 230, 172
   index: -1
-beetle3-legMRd
-  rotate: false
-  xy: 165, 563
-  size: 51, 65
-  orig: 348, 560
-  offset: 281, 122
-  index: -1
 beetle3-thorax
   rotate: false
-  xy: 598, 914
+  xy: 438, 646
   size: 139, 104
   orig: 348, 560
   offset: 102, 270
   index: -1
 beetle4-legBL
-  rotate: false
-  xy: 2, 208
+  rotate: true
+  xy: 2, 15
   size: 65, 182
   orig: 518, 758
   offset: 115, 87
   index: -1
+beetle4-legBLd
+  rotate: false
+  xy: 330, 267
+  size: 57, 95
+  orig: 518, 758
+  offset: 102, 4
+  index: -1
 beetle4-legBR
-  rotate: true
-  xy: 212, 842
+  rotate: false
+  xy: 198, 578
   size: 61, 183
   orig: 518, 758
   offset: 356, 74
   index: -1
 beetle4-legBRd
-  rotate: true
-  xy: 72, 3
+  rotate: false
+  xy: 961, 662
   size: 61, 89
   orig: 518, 758
   offset: 366, 6
   index: -1
 beetle4-legFL
   rotate: false
-  xy: 2, 621
+  xy: 132, 82
   size: 122, 203
   orig: 518, 758
   offset: 47, 435
   index: -1
 beetle4-legFLd
   rotate: false
-  xy: 2, 66
+  xy: 955, 882
   size: 67, 140
   orig: 518, 758
   offset: 2, 607
   index: -1
 beetle4-legFR
   rotate: true
-  xy: 212, 905
+  xy: 746, 909
   size: 113, 207
   orig: 518, 758
   offset: 357, 433
   index: -1
 beetle4-legFRd
   rotate: true
-  xy: 397, 834
+  xy: 261, 579
   size: 65, 140
   orig: 518, 758
   offset: 447, 615
   index: -1
-beetle5-legBL
+beetle4-legMLd
+  rotate: true
+  xy: 475, 218
+  size: 72, 113
+  orig: 518, 758
+  offset: 28, 128
+  index: -1
+beetle4-legMR
   rotate: false
-  xy: 2, 392
-  size: 92, 227
+  xy: 874, 747
+  size: 79, 160
+  orig: 518, 758
+  offset: 369, 215
+  index: -1
+beetle4-legMRd
+  rotate: false
+  xy: 256, 247
+  size: 72, 114
+  orig: 518, 758
+  offset: 441, 129
+  index: -1
+beetle4-thorax
+  rotate: false
+  xy: 211, 765
+  size: 225, 153
+  orig: 518, 758
+  offset: 150, 365
+  index: -1
+beetle5-legBLd
+  rotate: true
+  xy: 476, 364
+  size: 70, 129
   orig: 732, 778
-  offset: 199, 100
+  offset: 160, 3
+  index: -1
+beetle5-legBR
+  rotate: true
+  xy: 523, 925
+  size: 97, 221
+  orig: 732, 778
+  offset: 448, 106
+  index: -1
+beetle5-legBRd
+  rotate: true
+  xy: 476, 292
+  size: 70, 128
+  orig: 732, 778
+  offset: 523, 3
+  index: -1
+beetle5-legFL
+  rotate: true
+  xy: 438, 752
+  size: 166, 146
+  orig: 732, 778
+  offset: 148, 532
+  index: -1
+beetle5-legFLd
+  rotate: true
+  xy: 318, 141
+  size: 104, 71
+  orig: 732, 778
+  offset: 58, 662
+  index: -1
+beetle5-legFR
+  rotate: true
+  xy: 586, 750
+  size: 173, 148
+  orig: 732, 778
+  offset: 410, 532
   index: -1
 beetle5-legFRd
   rotate: true
-  xy: 71, 119
+  xy: 267, 11
   size: 107, 76
   orig: 732, 778
   offset: 570, 659
   index: -1
-beetle5-legMRd
+beetle5-legML
   rotate: false
-  xy: 612, 828
+  xy: 731, 601
+  size: 136, 147
+  orig: 732, 778
+  offset: 140, 343
+  index: -1
+beetle5-legMLd
+  rotate: true
+  xy: 475, 56
+  size: 88, 92
+  orig: 732, 778
+  offset: 77, 274
+  index: -1
+beetle5-legMR
+  rotate: false
+  xy: 736, 750
+  size: 136, 157
+  orig: 732, 778
+  offset: 463, 327
+  index: -1
+beetle5-legMRd
+  rotate: true
+  xy: 389, 262
   size: 88, 84
   orig: 732, 778
   offset: 581, 276
   index: -1
 beetle5-thorax
   rotate: false
-  xy: 421, 901
+  xy: 261, 646
   size: 175, 117
   orig: 732, 778
   offset: 278, 486
+  index: -1
+beetle6-head
+  rotate: false
+  xy: 211, 920
+  size: 310, 102
+  orig: 310, 480
+  offset: 0, 378
+  index: -1
+beetle6-thorax
+  rotate: false
+  xy: 528, 494
+  size: 126, 76
+  orig: 310, 480
+  offset: 98, 305
+  index: -1
+beetle7-head
+  rotate: true
+  xy: 256, 120
+  size: 125, 60
+  orig: 458, 688
+  offset: 162, 525
+  index: -1
+beetle7-thorax
+  rotate: false
+  xy: 421, 484
+  size: 105, 102
+  orig: 458, 688
+  offset: 170, 428
+  index: -1
+beetle8-abdomen
+  rotate: false
+  xy: 2, 497
+  size: 194, 264
+  orig: 548, 804
+  offset: 183, 107
+  index: -1
+beetle9-head
+  rotate: false
+  xy: 403, 588
+  size: 145, 56
+  orig: 334, 478
+  offset: 99, 412
+  index: -1
+beetle9-thorax
+  rotate: false
+  xy: 579, 629
+  size: 150, 119
+  orig: 334, 478
+  offset: 94, 298
   index: -1
