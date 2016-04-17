@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [System.Serializable]
-public class LegPartDef : MonoBehaviour
+public class LegPartDef : StaticDataDef
 {
-    public int m_ID
-    {
-        get; set;
-    }
-
     public string m_name
     {
         get; set;
@@ -43,4 +39,12 @@ public class LegPartDef : MonoBehaviour
     {
         get; set;
     }
+}
+
+[Serializable]
+public class LegsStaticData : StaticDataDictionary<LegPartDef>
+{
+    public const string c_resourcePath = "StaticData/LegsStaticData";
+    public const string c_definitionPath = "/StaticDefinitions/BodyPartDefs.xlsx";
+    public const string c_sheetName = "LegPartDefs";
 }

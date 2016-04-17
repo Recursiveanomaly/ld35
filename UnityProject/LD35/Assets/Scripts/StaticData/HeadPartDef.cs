@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [System.Serializable]
-public class HeadPartDef
+public class HeadPartDef : StaticDataDef
 {
-    public int m_ID
-    {
-        get; set;
-    }
-
     public string m_name
     {
         get; set;
@@ -44,3 +40,12 @@ public class HeadPartDef
         get; set;
     }
 }
+
+[Serializable]
+public class HeadsStaticData : StaticDataDictionary<HeadPartDef>
+{
+    public const string c_resourcePath = "StaticData/HeadsStaticData";
+    public const string c_definitionPath = "/StaticDefinitions/BodyPartDefs.xlsx";
+    public const string c_sheetName = "HeadPartDefs";
+}
+

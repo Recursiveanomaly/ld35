@@ -46,12 +46,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") > 0.5f)
         {
             eulerRotation.z -= m_turnSpeed;
-            m_beetleBase.PlayTurnLeftAnimation();
+            m_beetleBase.PlayTurnRightAnimation();
         }
         else if (Input.GetAxisRaw("Horizontal") < -0.5f)
         {
             eulerRotation.z += m_turnSpeed;
-            m_beetleBase.PlayTurnRightAnimation();
+            m_beetleBase.PlayTurnLeftAnimation();
         }
 
         // forward motion

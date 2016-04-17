@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [System.Serializable]
-public class ThoraxPartDefs
+public class AbdomenPartDef : StaticDataDef
 {
-    public int m_ID
-    {
-        get; set;
-    }
-
     public string m_name
     {
         get; set;
@@ -43,4 +39,12 @@ public class ThoraxPartDefs
     {
         get; set;
     }
+}
+
+[Serializable]
+public class AbdomensStaticData : StaticDataDictionary<AbdomenPartDef>
+{
+    public const string c_resourcePath = "StaticData/AbdomensStaticData";
+    public const string c_definitionPath = "/StaticDefinitions/BodyPartDefs.xlsx";
+    public const string c_sheetName = "AbdomenPartDefs";
 }
