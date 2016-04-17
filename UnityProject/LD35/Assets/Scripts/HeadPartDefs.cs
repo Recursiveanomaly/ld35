@@ -9,37 +9,37 @@ public class HeadPartDefs
         get; set;
     }
 
-    public string name
+    public string m_name
     {
         get; set;
     }
 
-    public string description
+    public string m_description
     {
         get; set;
     }
 
-    public string assetName
+    public string m_assetName
     {
         get; set;
     }
 
-    public int health
+    public int m_health
     {
         get; set;
     }
 
-    public int damage
+    public int m_damage
     {
         get; set;
     }
 
-    public int turnSpeed
+    public int m_turnSpeed
     {
         get; set;
     }
 
-    public int jumpForce
+    public int m_jumpForce
     {
         get; set;
     }
