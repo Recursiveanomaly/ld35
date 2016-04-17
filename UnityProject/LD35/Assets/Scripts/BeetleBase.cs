@@ -5,6 +5,14 @@ using Spine.Unity;
 
 public class BeetleBase : MonoBehaviour
 {
+    public enum eBodyPartType
+    {
+        kHead,
+        kThorax,
+        kAbdomen,
+        kLeg
+    }
+
     public int m_health = 3;
     public int m_damage = 1;
     public float m_damageInvulnerabilityTime = 1;
@@ -20,17 +28,43 @@ public class BeetleBase : MonoBehaviour
     public Rigidbody2D m_body;
 
     public string m_name;
-    private int randomRoll;
     public TextMesh m_textMesh;
+
+    int m_headDefID;
+    int m_thoraxDefID;
+    int m_abdomenDefID;
+    int m_legDefID;
 
     void Awake()
     {
         m_photonView = GetComponent<PhotonView>();
         m_body = GetComponent<Rigidbody2D>();
 
-        randomRoll = UnityEngine.Random.Range(1, 533);
-        m_name = StaticData.Instance.m_beetleNames.GetStaticDef(randomRoll).m_scientificName;
+        // randomize the name
+        int nameID;
+        BeetleNameDef nameDef = StaticData.Instance.m_beetleNames.GetRandomStaticDef(out nameID);
+        if (nameDef != null)
+        {
+            m_name = nameDef.m_scientificName;
+        }
+        else
+        {
+            m_name = "Caulophilus oryzae";
+        }
         m_textMesh.text = m_name;
+
+        // randomize body parts
+        HeadPartDef headDef = StaticData.Instance.m_heads.GetRandomStaticDef(out m_headDefID);
+        if (headDef != null) SetBodyPart(eBodyPartType.kHead, headDef.m_assetName);
+
+        ThoraxPartDef thoraxDef = StaticData.Instance.m_thoraces.GetRandomStaticDef(out m_thoraxDefID);
+        if (thoraxDef != null) SetBodyPart(eBodyPartType.kThorax, thoraxDef.m_assetName);
+
+        AbdomenPartDef abdomenDef = StaticData.Instance.m_abdomens.GetRandomStaticDef(out m_abdomenDefID);
+        if (abdomenDef != null) SetBodyPart(eBodyPartType.kAbdomen, abdomenDef.m_assetName);
+
+        LegPartDef legDef = StaticData.Instance.m_legs.GetRandomStaticDef(out m_legDefID);
+        if (legDef != null) SetBodyPart(eBodyPartType.kLeg, legDef.m_assetName);
     }
 
     float m_timeSinceDamage = 0;
@@ -59,6 +93,44 @@ public class BeetleBase : MonoBehaviour
         {
             m_skeleton.state.SetAnimation(0, "turnRight", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);
+        }
+    }
+
+    public void SetBodyPart(eBodyPartType bodyPartType, string assetName)
+    {
+        if (m_skeleton == null) return;
+        switch (bodyPartType)
+        {
+            case eBodyPartType.kHead:
+                m_skeleton.Skeleton.SetAttachment("headSlot", assetName);
+                break;
+            case eBodyPartType.kThorax:
+                m_skeleton.Skeleton.SetAttachment("thoraxSlot", assetName);
+                break;
+            case eBodyPartType.kAbdomen:
+                m_skeleton.Skeleton.SetAttachment("abdomenSlot", assetName);
+                break;
+            case eBodyPartType.kLeg:
+                m_skeleton.Skeleton.SetAttachment("legBackLeftUpperSlot", assetName + "-legBL");
+                m_skeleton.Skeleton.SetAttachment("legBackLeftLowerSlot", assetName + "-legBLd");
+
+                m_skeleton.Skeleton.SetAttachment("legBackRightUpperSlot", assetName + "-legBR");
+                m_skeleton.Skeleton.SetAttachment("legBackRightLowerSlot", assetName + "-legBRd");
+
+                m_skeleton.Skeleton.SetAttachment("legMiddleLeftUpperSlot", assetName + "-legML");
+                m_skeleton.Skeleton.SetAttachment("legMiddleLeftLowerSlot", assetName + "-legMLd");
+
+                m_skeleton.Skeleton.SetAttachment("legMiddleRightUpperSlot", assetName + "-legMR");
+                m_skeleton.Skeleton.SetAttachment("legMiddleRightLowerSlot", assetName + "-legMRd");
+
+                m_skeleton.Skeleton.SetAttachment("legFrontLeftUpperSlot", assetName + "-legFL");
+                m_skeleton.Skeleton.SetAttachment("legFrontLeftLowerSlot", assetName + "-legFLd");
+
+                m_skeleton.Skeleton.SetAttachment("legFrontRightUpperSlot", assetName + "-legFR");
+                m_skeleton.Skeleton.SetAttachment("legFrontRightLowerSlot", assetName + "-legFRd");
+                break;
+            default:
+                break;
         }
     }
 

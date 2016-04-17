@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
+using System.Linq;
 
 public sealed class StaticData
 {    
@@ -94,6 +95,13 @@ public abstract class StaticDataDictionary<T> where T : StaticDataDef, new()
             return m_defs[id];
         }
         return null;
+    }
+
+    public T GetRandomStaticDef(out int id)
+    {
+        int keyIndex = UnityEngine.Random.Range(0, m_defs.Keys.Count);
+        id = m_defs.Keys.ElementAt(keyIndex);
+        return GetStaticDef(id);
     }
 
     public void OverwriteAllStaticData(Dictionary<int, T> newDefs)
