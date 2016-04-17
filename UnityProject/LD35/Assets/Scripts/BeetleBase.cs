@@ -19,10 +19,18 @@ public class BeetleBase : MonoBehaviour
     [System.NonSerialized]
     public Rigidbody2D m_body;
 
+    public string m_name;
+    private int randomRoll;
+    public TextMesh m_textMesh;
+
     void Awake()
     {
         m_photonView = GetComponent<PhotonView>();
         m_body = GetComponent<Rigidbody2D>();
+
+        randomRoll = UnityEngine.Random.Range(1, 533);
+        m_name = StaticData.Instance.m_beetleNames.GetStaticDef(randomRoll).m_scientificName;
+        m_textMesh.text = m_name;
     }
 
     float m_timeSinceDamage = 0;
