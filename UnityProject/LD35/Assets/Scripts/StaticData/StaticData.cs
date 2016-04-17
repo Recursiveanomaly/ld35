@@ -12,14 +12,18 @@ public sealed class StaticData
     public AbdomensStaticData m_abdomens;
     public HeadsStaticData m_heads;
 
+    public BeetleNamesStaticData m_beetleNames;
+
     #region Singleton
 
     private StaticData()
     {
         m_legs = LoadStaticDataDictionary<LegsStaticData, LegPartDef>(LegsStaticData.c_resourcePath);
-        m_thoraces = LoadStaticDataDictionary<ThoracesStaticData, ThoraxPartDefs>(ThoracesStaticData.c_resourcePath);
+        m_thoraces = LoadStaticDataDictionary<ThoracesStaticData, ThoraxPartDef>(ThoracesStaticData.c_resourcePath);
         m_abdomens = LoadStaticDataDictionary<AbdomensStaticData, AbdomenPartDef>(AbdomensStaticData.c_resourcePath);
         m_heads = LoadStaticDataDictionary<HeadsStaticData, HeadPartDef>(HeadsStaticData.c_resourcePath);
+
+        m_beetleNames = LoadStaticDataDictionary<BeetleNamesStaticData, BeetleNameDef>(BeetleNamesStaticData.c_resourcePath);
     }
 
     public static StaticData Instance { get { return Nested.instance; } }

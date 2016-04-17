@@ -91,6 +91,15 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Excel">
+      <HintPath>Assets\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Assets\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <HintPath>Assets\System.EnterpriseServices.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets\Photon Unity Networking\Editor\PhotonNetwork\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -99,15 +108,6 @@
     </Reference>
     <Reference Include="websocket-sharp">
       <HintPath>Assets\Photon Unity Networking\Plugins\WebSocket\websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Excel">
-      <HintPath>Assets\Excel.dll</HintPath>
-    </Reference>
-    <Reference Include="System.EnterpriseServices">
-      <HintPath>Assets\System.EnterpriseServices.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data">
-      <HintPath>Assets\System.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +161,11 @@
     <None Include="Assets\Photon Unity Networking\Plugins\release_history.txt" />
     <None Include="Assets\Photon Unity Networking\changelog.txt" />
     <None Include="Assets\Photon Unity Networking\readme.txt" />
+    <None Include="Assets\Resources\StaticData\AbdomensStaticData.txt" />
+    <None Include="Assets\Resources\StaticData\BeetleNamesStaticData.txt" />
+    <None Include="Assets\Resources\StaticData\HeadsStaticData.txt" />
+    <None Include="Assets\Resources\StaticData\LegsStaticData.txt" />
+    <None Include="Assets\Resources\StaticData\ThoracesStaticData.txt" />
     <None Include="Assets\Spine\spine-unity\Editor\Resources\SpineAssetDatabaseMarker.txt" />
     <None Include="Assets\Spine\spine-unity\Modules\CustomMaterials\readme.txt" />
     <None Include="Assets\Spine\spine-unity\Modules\Ghost\Shaders\SkeletonGhost.shader" />

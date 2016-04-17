@@ -61,20 +61,20 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Excel">
+      <HintPath>Assets\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Assets\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <HintPath>Assets\System.EnterpriseServices.dll</HintPath>
+    </Reference>
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets\Photon Unity Networking\Plugins\Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
       <HintPath>Assets\Photon Unity Networking\Plugins\WebSocket\websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Excel">
-      <HintPath>Assets\Excel.dll</HintPath>
-    </Reference>
-    <Reference Include="System.EnterpriseServices">
-      <HintPath>Assets\System.EnterpriseServices.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data">
-      <HintPath>Assets\System.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +156,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\RoomSetup.cs" />
     <Compile Include="Assets\Scripts\StaticData\AbdomenPartDef.cs" />
+    <Compile Include="Assets\Scripts\StaticData\BeetleNameDef.cs" />
     <Compile Include="Assets\Scripts\StaticData\BinarySerializer.cs" />
     <Compile Include="Assets\Scripts\StaticData\ExcelReader.cs" />
     <Compile Include="Assets\Scripts\StaticData\HeadPartDef.cs" />
@@ -244,6 +245,11 @@
     <None Include="Assets\Photon Unity Networking\Plugins\release_history.txt" />
     <None Include="Assets\Photon Unity Networking\changelog.txt" />
     <None Include="Assets\Photon Unity Networking\readme.txt" />
+    <None Include="Assets\Resources\StaticData\AbdomensStaticData.txt" />
+    <None Include="Assets\Resources\StaticData\BeetleNamesStaticData.txt" />
+    <None Include="Assets\Resources\StaticData\HeadsStaticData.txt" />
+    <None Include="Assets\Resources\StaticData\LegsStaticData.txt" />
+    <None Include="Assets\Resources\StaticData\ThoracesStaticData.txt" />
     <None Include="Assets\Spine\spine-unity\Editor\Resources\SpineAssetDatabaseMarker.txt" />
     <None Include="Assets\Spine\spine-unity\Modules\CustomMaterials\readme.txt" />
     <None Include="Assets\Spine\spine-unity\Modules\Ghost\Shaders\SkeletonGhost.shader" />

@@ -15,12 +15,14 @@ public class RebuildStaticData
         // Body Parts
         LoadExcelDataIntoSerializedBinary<LegsStaticData, LegPartDef>(LegsStaticData.c_definitionPath, LegsStaticData.c_resourcePath, LegsStaticData.c_sheetName);
         Debug.Log("Loaded Leg Defs Static Data");
-        LoadExcelDataIntoSerializedBinary<ThoracesStaticData, ThoraxPartDefs>(ThoracesStaticData.c_definitionPath, ThoracesStaticData.c_resourcePath, ThoracesStaticData.c_sheetName);
+        LoadExcelDataIntoSerializedBinary<ThoracesStaticData, ThoraxPartDef>(ThoracesStaticData.c_definitionPath, ThoracesStaticData.c_resourcePath, ThoracesStaticData.c_sheetName);
         Debug.Log("Loaded Thorax Defs Static Data");
         LoadExcelDataIntoSerializedBinary<AbdomensStaticData, AbdomenPartDef>(AbdomensStaticData.c_definitionPath, AbdomensStaticData.c_resourcePath, AbdomensStaticData.c_sheetName);
         Debug.Log("Loaded Abdomen Defs Static Data");
         LoadExcelDataIntoSerializedBinary<HeadsStaticData, HeadPartDef>(HeadsStaticData.c_definitionPath, HeadsStaticData.c_resourcePath, HeadsStaticData.c_sheetName);
         Debug.Log("Loaded Head Defs Static Data");
+        LoadExcelDataIntoSerializedBinary<BeetleNamesStaticData, BeetleNameDef>(BeetleNamesStaticData.c_definitionPath, BeetleNamesStaticData.c_resourcePath, BeetleNamesStaticData.c_sheetName);
+        Debug.Log("Loaded Beetle Name Defs Static Data");
 
         AssetDatabase.Refresh();
         Debug.Log("Finished Rebuilding Static Data");

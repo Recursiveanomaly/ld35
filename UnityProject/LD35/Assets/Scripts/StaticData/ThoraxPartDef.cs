@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 [System.Serializable]
-public class ThoraxPartDefs : StaticDataDef
+public class ThoraxPartDef : StaticDataDef
 {
     public string m_name
     {
@@ -42,7 +42,7 @@ public class ThoraxPartDefs : StaticDataDef
 }
 
 [Serializable]
-public class ThoracesStaticData : StaticDataDictionary<ThoraxPartDefs>
+public class ThoracesStaticData : StaticDataDictionary<ThoraxPartDef>
 {
     public const string c_resourcePath = "StaticData/ThoracesStaticData";
     public const string c_definitionPath = "/StaticDefinitions/BodyPartDefs.xlsx";
