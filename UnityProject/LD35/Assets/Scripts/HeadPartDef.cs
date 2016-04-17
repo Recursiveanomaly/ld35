@@ -2,7 +2,7 @@
 using System.Collections;
 
 [System.Serializable]
-public class HeadPartDefs
+public class HeadPartDef
 {
     public int m_ID
     {
