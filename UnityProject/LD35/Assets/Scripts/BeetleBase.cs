@@ -13,18 +13,41 @@ public class BeetleBase : MonoBehaviour
         kLeg
     }
 
+    [ReadOnly]
+    public float m_fromPartsBackSpeed;
+    public float m_overrideBackSpeed = -1;
+    [ReadOnly]
+    public float m_fromPartsTurnSpeed;
+    public float m_overrideTurnSpeed = -1;
+    [ReadOnly]
+    public float m_fromPartsJumpForce;
+    public float m_overrideJumpForce = -1;
+    [ReadOnly]
+    public float m_fromPartsJumpCooldown;
+    public float m_overrideJumpCooldown = -1;
+    [ReadOnly]
+    public int m_fromPartsMaxHealth;
+    public int m_overrideMaxHealth = -1;
+    [ReadOnly]
+    public int m_fromPartsDamage;
+    public int m_overrideDamage = -1;
+
+
     public float m_backSpeed
     {
         get
         {
+            if (m_overrideBackSpeed != -1) return m_overrideBackSpeed;
             HeadPartDef head = GetHeadDef();
             ThoraxPartDef thorax = GetThoraxDef();
             AbdomenPartDef abdomen = GetAbdomenDef();
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                return Mathf.Max(60, head.m_backSpeed + thorax.m_backSpeed + abdomen.m_backSpeed + leg.m_backSpeed);
+                m_fromPartsBackSpeed = Mathf.Max(60, head.m_backSpeed + thorax.m_backSpeed + abdomen.m_backSpeed + leg.m_backSpeed);
+                return m_fromPartsBackSpeed;
             }
+            m_fromPartsBackSpeed = -1;
             return 60;
         }
     }
@@ -32,14 +55,17 @@ public class BeetleBase : MonoBehaviour
     {
         get
         {
+            if (m_overrideTurnSpeed != -1) return m_overrideTurnSpeed;
             HeadPartDef head = GetHeadDef();
             ThoraxPartDef thorax = GetThoraxDef();
             AbdomenPartDef abdomen = GetAbdomenDef();
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                return Mathf.Max(120, head.m_turnSpeed + thorax.m_turnSpeed + abdomen.m_turnSpeed + leg.m_turnSpeed);
+                m_fromPartsTurnSpeed = Mathf.Max(120, head.m_turnSpeed + thorax.m_turnSpeed + abdomen.m_turnSpeed + leg.m_turnSpeed);
+                return m_fromPartsTurnSpeed;
             }
+            m_fromPartsTurnSpeed = -1;
             return 120;
         }
     }
@@ -47,14 +73,17 @@ public class BeetleBase : MonoBehaviour
     {
         get
         {
+            if (m_overrideJumpForce != -1) return m_overrideJumpForce;
             HeadPartDef head = GetHeadDef();
             ThoraxPartDef thorax = GetThoraxDef();
             AbdomenPartDef abdomen = GetAbdomenDef();
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                return Mathf.Max(600, head.m_jumpForce + thorax.m_jumpForce + abdomen.m_jumpForce + leg.m_jumpForce);
+                m_fromPartsJumpForce = Mathf.Max(600, head.m_jumpForce + thorax.m_jumpForce + abdomen.m_jumpForce + leg.m_jumpForce);
+                return m_fromPartsJumpForce;
             }
+            m_fromPartsJumpForce = -1;
             return 600;
         }
     }
@@ -62,14 +91,17 @@ public class BeetleBase : MonoBehaviour
     {
         get
         {
+            if (m_overrideJumpCooldown != -1) return m_overrideJumpCooldown;
             HeadPartDef head = GetHeadDef();
             ThoraxPartDef thorax = GetThoraxDef();
             AbdomenPartDef abdomen = GetAbdomenDef();
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                return Mathf.Max(0, head.m_jumpCooldown + thorax.m_jumpCooldown + abdomen.m_jumpCooldown + leg.m_jumpCooldown);
+                m_fromPartsJumpCooldown = Mathf.Max(0, head.m_jumpCooldown + thorax.m_jumpCooldown + abdomen.m_jumpCooldown + leg.m_jumpCooldown);
+                return m_fromPartsJumpCooldown;
             }
+            m_fromPartsJumpCooldown = -1;
             return 0;
         }
     }
@@ -77,14 +109,17 @@ public class BeetleBase : MonoBehaviour
     {
         get
         {
+            if (m_overrideMaxHealth != -1) return m_overrideMaxHealth;
             HeadPartDef head = GetHeadDef();
             ThoraxPartDef thorax = GetThoraxDef();
             AbdomenPartDef abdomen = GetAbdomenDef();
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                return Mathf.Max(20, head.m_health + thorax.m_health + abdomen.m_health + leg.m_health);
+                m_fromPartsMaxHealth = Mathf.Max(20, head.m_health + thorax.m_health + abdomen.m_health + leg.m_health);
+                return m_fromPartsMaxHealth;
             }
+            m_fromPartsMaxHealth = -1;
             return 20;
         }
     }
@@ -92,14 +127,17 @@ public class BeetleBase : MonoBehaviour
     {
         get
         {
+            if (m_overrideDamage != -1) return m_overrideDamage;
             HeadPartDef head = GetHeadDef();
             ThoraxPartDef thorax = GetThoraxDef();
             AbdomenPartDef abdomen = GetAbdomenDef();
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                return Mathf.Max(4, head.m_damage + thorax.m_damage + abdomen.m_damage + leg.m_damage);
+                m_fromPartsDamage = Mathf.Max(4, head.m_damage + thorax.m_damage + abdomen.m_damage + leg.m_damage);
+                return m_fromPartsDamage;
             }
+            m_fromPartsDamage = -1;
             return 4;
         }
     }
@@ -127,13 +165,31 @@ public class BeetleBase : MonoBehaviour
     public string m_name;
     public TextMesh m_textMesh;
 
-    int m_headDefID;
-    int m_thoraxDefID;
-    int m_abdomenDefID;
-    int m_legDefID;
+    [ReadOnly]
+    public int m_headDefID;
+    [ReadOnly]
+    public int m_thoraxDefID;
+    [ReadOnly]
+    public int m_abdomenDefID;
+    [ReadOnly]
+    public int m_legDefID;
 
     void Awake()
     {
+        m_fromPartsBackSpeed = -1;
+        m_fromPartsTurnSpeed = -1;
+        m_fromPartsJumpForce = -1;
+        m_fromPartsJumpCooldown = -1;
+        m_fromPartsMaxHealth = -1;
+        m_fromPartsDamage = -1;
+
+        m_overrideBackSpeed = -1;
+        m_overrideTurnSpeed = -1;
+        m_overrideJumpForce = -1;
+        m_overrideJumpCooldown = -1;   
+        m_overrideMaxHealth = -1;
+        m_overrideDamage = -1;
+
         m_photonView = GetComponent<PhotonView>();
         m_body = GetComponent<Rigidbody2D>();
         m_turnAudioSource = gameObject.AddComponent<AudioSource>();
@@ -255,6 +311,16 @@ public class BeetleBase : MonoBehaviour
     }
 
     float m_timeSinceDamage = 0;
+
+    public void PlayHurtAnimation()
+    {
+        if (m_skeleton != null && m_skeleton.state != null)
+        {
+            m_skeleton.state.SetAnimation(0, "hurt", false);
+            m_skeleton.state.AddAnimation(0, "idle", true, 0);
+            PlayJumpSFX();
+        }
+    }
 
     public void PlayJumpAnimation()
     {
@@ -386,6 +452,7 @@ public class BeetleBase : MonoBehaviour
     [PunRPC]
     public void RPC_ApplyDamage(int damage)
     {
+        PlayHurtAnimation();
         m_timeSinceDamage = Time.time;
         m_health -= damage;
         if (m_health <= 0)
