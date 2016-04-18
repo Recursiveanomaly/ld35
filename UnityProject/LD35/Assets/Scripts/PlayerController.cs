@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (m_photonView.isMine == false)
+        if (m_photonView.isMine == false || m_beetleBase.m_dead)
         {
             return;
         }

@@ -13,6 +13,9 @@ public class BeetleBase : MonoBehaviour
         kLeg
     }
 
+    [NonSerialized]
+    public bool m_dead = false;
+
     [ReadOnly]
     public float m_fromPartsBackSpeed;
     public float m_overrideBackSpeed = -1;
@@ -32,7 +35,6 @@ public class BeetleBase : MonoBehaviour
     public int m_fromPartsDamage;
     public int m_overrideDamage = -1;
 
-
     public float m_backSpeed
     {
         get
@@ -44,11 +46,11 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsBackSpeed = Mathf.Max(60, head.m_backSpeed + thorax.m_backSpeed + abdomen.m_backSpeed + leg.m_backSpeed);
+                m_fromPartsBackSpeed = Mathf.Max(1, head.m_backSpeed + thorax.m_backSpeed + abdomen.m_backSpeed + leg.m_backSpeed);
                 return m_fromPartsBackSpeed;
             }
             m_fromPartsBackSpeed = -1;
-            return 60;
+            return 1;
         }
     }
     public float m_turnSpeed
@@ -62,11 +64,11 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsTurnSpeed = Mathf.Max(120, head.m_turnSpeed + thorax.m_turnSpeed + abdomen.m_turnSpeed + leg.m_turnSpeed);
+                m_fromPartsTurnSpeed = Mathf.Max(1, head.m_turnSpeed + thorax.m_turnSpeed + abdomen.m_turnSpeed + leg.m_turnSpeed);
                 return m_fromPartsTurnSpeed;
             }
             m_fromPartsTurnSpeed = -1;
-            return 120;
+            return 1;
         }
     }
     public float m_jumpForce
@@ -80,11 +82,11 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsJumpForce = Mathf.Max(600, head.m_jumpForce + thorax.m_jumpForce + abdomen.m_jumpForce + leg.m_jumpForce);
+                m_fromPartsJumpForce = Mathf.Max(1, head.m_jumpForce + thorax.m_jumpForce + abdomen.m_jumpForce + leg.m_jumpForce);
                 return m_fromPartsJumpForce;
             }
             m_fromPartsJumpForce = -1;
-            return 600;
+            return 1;
         }
     }
     public float m_jumpCooldown
@@ -98,11 +100,11 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsJumpCooldown = Mathf.Max(0, head.m_jumpCooldown + thorax.m_jumpCooldown + abdomen.m_jumpCooldown + leg.m_jumpCooldown);
+                m_fromPartsJumpCooldown = Mathf.Max(0.1f, head.m_jumpCooldown + thorax.m_jumpCooldown + abdomen.m_jumpCooldown + leg.m_jumpCooldown);
                 return m_fromPartsJumpCooldown;
             }
             m_fromPartsJumpCooldown = -1;
-            return 0;
+            return 0.1f;
         }
     }
     public int m_maxHealth
@@ -116,11 +118,11 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsMaxHealth = Mathf.Max(20, head.m_health + thorax.m_health + abdomen.m_health + leg.m_health);
+                m_fromPartsMaxHealth = Mathf.Max(1, head.m_health + thorax.m_health + abdomen.m_health + leg.m_health);
                 return m_fromPartsMaxHealth;
             }
             m_fromPartsMaxHealth = -1;
-            return 20;
+            return 1;
         }
     }
     public int m_damage
@@ -134,11 +136,11 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsDamage = Mathf.Max(4, head.m_damage + thorax.m_damage + abdomen.m_damage + leg.m_damage);
+                m_fromPartsDamage = Mathf.Max(1, head.m_damage + thorax.m_damage + abdomen.m_damage + leg.m_damage);
                 return m_fromPartsDamage;
             }
             m_fromPartsDamage = -1;
-            return 4;
+            return 1;
         }
     }
 
@@ -321,16 +323,25 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayHurtAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null)
+        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(1, "hurt", false);
             PlayJumpSFX();
         }
     }
 
-    public void PlayJumpAnimation()
+    public void PlayDeathAnimation()
     {
         if (m_skeleton != null && m_skeleton.state != null)
+        {
+            m_skeleton.state.SetAnimation(0, "death", false);
+            m_skeleton.state.SetAnimation(1, "death", false);
+        }
+    }
+
+    public void PlayJumpAnimation()
+    {
+        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(0, "jump", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);
@@ -340,7 +351,7 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayTurnLeftAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "turnLeft")
+        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "turnLeft" && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(0, "turnLeft", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);
@@ -350,7 +361,7 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayTurnRightAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "turnRight")
+        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "turnRight" && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(0, "turnRight", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);
@@ -463,7 +474,15 @@ public class BeetleBase : MonoBehaviour
         m_health -= damage;
         if (m_health <= 0)
         {
-            GameObject.Destroy(gameObject);
+            StartCoroutine(CR_Destroy());
         }
+    }
+
+    IEnumerator CR_Destroy()
+    {
+        m_dead = true;
+        PlayDeathAnimation();
+        yield return new WaitForSeconds(2f);
+        GameObject.Destroy(gameObject);
     }
 }

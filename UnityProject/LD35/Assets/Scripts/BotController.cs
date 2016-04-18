@@ -47,7 +47,7 @@ public class BotController : MonoBehaviour
 
     void Update()
     {
-        if (!IsLocalControl()) return;
+        if (!IsLocalControl() || m_beetleBase.m_dead) return;
 
         m_timeUntilStateCheck -= Time.deltaTime;
         if(m_timeUntilStateCheck <= 0)
