@@ -18,6 +18,19 @@ public class BeetleMaster : Singleton<BeetleMaster>
     public void BeetleDied(BeetleBase beetle)
     {
         m_beetles.Remove(beetle);
+
+        if(beetle.gameObject.tag == "Bot" && beetle.m_photonView.isMine)
+        {
+            //spawn a new beetle
+            SpawnBot();
+        }
+    }
+
+    float m_roomWidth = 50;
+    float m_roomHeight = 50;
+    public void SpawnBot()
+    {
+        PhotonNetwork.InstantiateSceneObject("BeetleBotPrefab", new Vector3(Random.Range(-m_roomWidth / 2, m_roomWidth / 2), Random.Range(-m_roomHeight / 2, m_roomHeight / 2), 0), Quaternion.identity, 0, null);
     }
 
     public BeetleBase FindClosestEnemy(BeetleBase originBeetle)
