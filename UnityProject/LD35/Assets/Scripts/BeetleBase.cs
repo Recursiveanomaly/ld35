@@ -472,7 +472,7 @@ public class BeetleBase : MonoBehaviour
             // tell all networked clients that damage has been applied
             try
             {
-                m_photonView.RPC("RPC_ApplyDamage", PhotonTargets.AllBuffered, attackingBeetle.m_damage);
+                m_photonView.RPC("RPC_ApplyDamage", PhotonTargets.All, attackingBeetle.m_damage);
             }
             catch { }
             m_timeSinceDamage = Time.time;
@@ -535,10 +535,6 @@ public class BeetleBase : MonoBehaviour
         if (m_photonView.isMine)
         {
             PhotonNetwork.Destroy(gameObject);
-        }
-        else
-        {
-            GameObject.Destroy(gameObject);
         }
     }
 }
