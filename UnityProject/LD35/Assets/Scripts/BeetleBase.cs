@@ -322,13 +322,7 @@ public class BeetleBase : MonoBehaviour
         //if (m_photonView == null || !m_photonView.isMine || gameObject.tag == "Bot") return;
         if (m_deathClip!= null)
         {
-<<<<<<< .mine
-            AudioSource.PlayClipAtPoint(m_deathClip, transform.position, 0.75f);
-||||||| .r76
-            AudioSource.PlayClipAtPoint(m_deathClip, transform.position, 0.5f);
-=======
             AudioSource.PlayClipAtPoint(m_deathClip, transform.position, 1f);
->>>>>>> .r79
             //m_audioSource.clip = m_jumpClip;
             //m_audioSource.Play();
         }
@@ -339,13 +333,7 @@ public class BeetleBase : MonoBehaviour
         //if (m_photonView == null || !m_photonView.isMine || gameObject.tag == "Bot") return;
         if (m_impactClip != null)
         {
-<<<<<<< .mine
-            AudioSource.PlayClipAtPoint(m_impactClip, transform.position, 1.0f);
-||||||| .r76
-            AudioSource.PlayClipAtPoint(m_impactClip, transform.position, 0.5f);
-=======
             AudioSource.PlayClipAtPoint(m_impactClip, transform.position, 1f);
->>>>>>> .r79
             //m_audioSource.clip = m_jumpClip;
             //m_audioSource.Play();
         }
