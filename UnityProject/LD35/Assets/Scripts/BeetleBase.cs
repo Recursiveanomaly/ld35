@@ -35,6 +35,24 @@ public class BeetleBase : MonoBehaviour
     public int m_fromPartsDamage;
     public int m_overrideDamage = -1;
 
+    private float m_minClampBackSpeed = 5;
+    private float m_maxClampBackSpeed = 30;
+
+    private float m_minClampTurnSpeed = 40;
+    private float m_maxClampTurnSpeed = 200;
+
+    private float m_minClampJumpForce = 700;
+    private float m_maxClampJumpForce = 2000;
+
+    private float m_minClampJumpCooldown = 0.4f;
+    private float m_maxClampJumpCooldown = 1.75f;
+
+    private int m_minClampMaxHealth = 25;
+    private int m_maxClampMaxHealth = 75;
+
+    private int m_minClampDamage = 5;
+    private int m_maxClampDamage = 30;
+
     public float m_backSpeed
     {
         get
@@ -46,7 +64,7 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsBackSpeed = Mathf.Max(1, head.m_backSpeed + thorax.m_backSpeed + abdomen.m_backSpeed + leg.m_backSpeed);
+               m_fromPartsBackSpeed = Mathf.Clamp(head.m_backSpeed + thorax.m_backSpeed + abdomen.m_backSpeed + leg.m_backSpeed, m_minClampBackSpeed, m_maxClampBackSpeed);
                 return m_fromPartsBackSpeed;
             }
             m_fromPartsBackSpeed = -1;
@@ -64,7 +82,7 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsTurnSpeed = Mathf.Max(1, head.m_turnSpeed + thorax.m_turnSpeed + abdomen.m_turnSpeed + leg.m_turnSpeed);
+                m_fromPartsTurnSpeed = Mathf.Clamp(head.m_turnSpeed + thorax.m_turnSpeed + abdomen.m_turnSpeed + leg.m_turnSpeed, m_minClampTurnSpeed, m_maxClampTurnSpeed);
                 return m_fromPartsTurnSpeed;
             }
             m_fromPartsTurnSpeed = -1;
@@ -82,7 +100,7 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsJumpForce = Mathf.Max(1, head.m_jumpForce + thorax.m_jumpForce + abdomen.m_jumpForce + leg.m_jumpForce);
+                m_fromPartsJumpForce = Mathf.Clamp(head.m_jumpForce + thorax.m_jumpForce + abdomen.m_jumpForce + leg.m_jumpForce, m_minClampJumpForce, m_maxClampJumpForce);
                 return m_fromPartsJumpForce;
             }
             m_fromPartsJumpForce = -1;
@@ -100,7 +118,7 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsJumpCooldown = Mathf.Max(0.1f, head.m_jumpCooldown + thorax.m_jumpCooldown + abdomen.m_jumpCooldown + leg.m_jumpCooldown);
+                m_fromPartsJumpCooldown = Mathf.Clamp(head.m_jumpCooldown + thorax.m_jumpCooldown + abdomen.m_jumpCooldown + leg.m_jumpCooldown, m_minClampJumpCooldown, m_maxClampJumpCooldown);
                 return m_fromPartsJumpCooldown;
             }
             m_fromPartsJumpCooldown = -1;
@@ -118,7 +136,7 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsMaxHealth = Mathf.Max(1, head.m_health + thorax.m_health + abdomen.m_health + leg.m_health);
+                m_fromPartsMaxHealth = Mathf.Clamp(head.m_health + thorax.m_health + abdomen.m_health + leg.m_health, m_minClampMaxHealth, m_maxClampMaxHealth);
                 return m_fromPartsMaxHealth;
             }
             m_fromPartsMaxHealth = -1;
@@ -136,7 +154,7 @@ public class BeetleBase : MonoBehaviour
             LegPartDef leg = GetLegDef();
             if (head != null && thorax != null && abdomen != null && leg != null)
             {
-                m_fromPartsDamage = Mathf.Max(1, head.m_damage + thorax.m_damage + abdomen.m_damage + leg.m_damage);
+                m_fromPartsDamage = Mathf.Clamp(head.m_damage + thorax.m_damage + abdomen.m_damage + leg.m_damage, m_minClampDamage, m_maxClampDamage);
                 return m_fromPartsDamage;
             }
             m_fromPartsDamage = -1;
