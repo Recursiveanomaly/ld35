@@ -350,16 +350,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce991ee55cb94f44181b6a4b38471c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_fromPartsBackSpeed: 0
+  m_overrideBackSpeed: -1
+  m_fromPartsTurnSpeed: 0
+  m_overrideTurnSpeed: -1
+  m_fromPartsJumpForce: 0
+  m_overrideJumpForce: -1
+  m_fromPartsJumpCooldown: 0
+  m_overrideJumpCooldown: -1
+  m_fromPartsMaxHealth: 0
+  m_overrideMaxHealth: -1
+  m_fromPartsDamage: 0
+  m_overrideDamage: -1
   m_damageInvulnerabilityTime: 1
   m_health: 3
   m_bounceAfterBeingHit: 300
   m_bounceAfterHit: 500
   m_jumpClip: {fileID: 8300000, guid: 15cfa3f5f145697448562f36ee583089, type: 3}
-  m_counterTurnClip: {fileID: 8300000, guid: 5c9461ca0d529054980f2317c2181f61, type: 3}
-  m_clockTurnClip: {fileID: 8300000, guid: cd1d34fcb40c9a24caf19b34e0a3eacb, type: 3}
+  m_counterTurnClip: {fileID: 8300000, guid: 0d231e7df5367214fa6f8c7165856c1a, type: 3}
+  m_clockTurnClip: {fileID: 8300000, guid: 0d231e7df5367214fa6f8c7165856c1a, type: 3}
   m_skeleton: {fileID: 11419828}
   m_name: 
   m_textMesh: {fileID: 10242228}
+  m_headDefID: 0
+  m_thoraxDefID: 0
+  m_abdomenDefID: 0
+  m_legDefID: 0
 --- !u!114 &11433616
 MonoBehaviour:
   m_ObjectHideFlags: 1
