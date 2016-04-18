@@ -26,6 +26,17 @@ public class BeetleMaster : Singleton<BeetleMaster>
         }
     }
 
+    public void Kill(int sourceID)
+    {
+        foreach(var beetle in m_beetles)
+        {
+            if(beetle.m_photonView.instantiationId == sourceID && beetle.m_photonView.isMine && beetle.GetComponent<PlayerController>() != null)
+            {
+                KillCounter.Instance.AddKill();
+            }
+        }
+    }
+
     float m_roomWidth = 50;
     float m_roomHeight = 50;
     public void SpawnBot()
