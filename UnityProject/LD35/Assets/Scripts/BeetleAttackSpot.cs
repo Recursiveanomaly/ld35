@@ -25,7 +25,7 @@ public class BeetleAttackSpot : MonoBehaviour
             return;
         }
         BeetleDamageSpot damageSpot = coll.collider.gameObject.GetComponent<BeetleDamageSpot>();
-        if (damageSpot != null && damageSpot.m_beetleBase != null)
+        if (damageSpot != null && damageSpot.m_beetleBase != null && !damageSpot.m_beetleBase.m_cocoon)
         {
             // we don't apply damage we caused
             if (!m_beetleBase.m_photonView.isMine)

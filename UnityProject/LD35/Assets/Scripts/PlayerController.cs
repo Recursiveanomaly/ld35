@@ -28,8 +28,17 @@ public class PlayerController : MonoBehaviour
         }
 
         Camera.main.transform.position = transform.position + m_cameraOffset;
-
-        UpdateMovement();
+        if (m_beetleBase.m_cocoon && !m_beetleBase.m_emerging)
+        {
+            if(Input.anyKeyDown)
+            {
+                m_beetleBase.StartCoroutine(m_beetleBase.CR_EmergeFromCocoon(0.2f));
+            }
+        }
+        else if(!m_beetleBase.m_emerging)
+        {
+            UpdateMovement();
+        }
     }
 
     void UpdateMovement()

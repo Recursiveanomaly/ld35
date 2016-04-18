@@ -196,6 +196,9 @@ public class BeetleBase : MonoBehaviour
     [ReadOnly]
     public int m_legDefID;
 
+    public bool m_cocoon;
+    public bool m_emerging;
+
     void Awake()
     {
         m_fromPartsBackSpeed = -1;
@@ -255,6 +258,22 @@ public class BeetleBase : MonoBehaviour
         m_health = m_maxHealth;
 
         BeetleMaster.Instance.BeetleCreated(this);
+
+        m_skeleton.state.SetAnimation(0, "cocoonIdle", true);
+        m_cocoon = true;
+        m_emerging = false;
+    }
+
+    public IEnumerator CR_EmergeFromCocoon(float randomizer)
+    {
+        m_emerging = true;
+        m_skeleton.state.SetAnimation(0, "cocoonIdle", false);
+        yield return new WaitForSeconds(randomizer);
+        m_skeleton.state.SetAnimation(0, "cocoonEmerge", false);
+        m_skeleton.state.AddAnimation(0, "idle", true, 0);
+        yield return new WaitForSeconds(1);
+        m_cocoon = false;
+        m_emerging = false;
     }
 
     void OnDestroy()
@@ -365,7 +384,7 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayHurtAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "death")
+        if (m_skeleton != null && m_skeleton.state != null && !m_cocoon && !m_emerging && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(1, "hurt", false);
             PlayImpactSFX();
@@ -383,7 +402,7 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayJumpAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "death")
+        if (m_skeleton != null && m_skeleton.state != null && !m_cocoon && !m_emerging && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(0, "jump", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);
@@ -393,7 +412,7 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayTurnLeftAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "turnLeft" && m_skeleton.AnimationName != "death")
+        if (m_skeleton != null && m_skeleton.state != null && !m_cocoon && !m_emerging && m_skeleton.AnimationName != "turnLeft" && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(0, "turnLeft", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);
@@ -403,7 +422,7 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayTurnRightAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "turnRight" && m_skeleton.AnimationName != "death")
+        if (m_skeleton != null && m_skeleton.state != null && !m_cocoon && !m_emerging && m_skeleton.AnimationName != "turnRight" && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(0, "turnRight", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);

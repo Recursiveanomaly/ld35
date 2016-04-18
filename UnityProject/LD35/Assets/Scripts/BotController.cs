@@ -49,14 +49,21 @@ public class BotController : MonoBehaviour
     {
         if (!IsLocalControl() || m_beetleBase.m_dead) return;
 
-        m_timeUntilStateCheck -= Time.deltaTime;
-        if(m_timeUntilStateCheck <= 0)
+        if (m_beetleBase.m_cocoon && !m_beetleBase.m_emerging)
         {
-            UpdateState();
-            m_timeUntilStateCheck = m_stateUpdateTime;
+            m_beetleBase.StartCoroutine(m_beetleBase.CR_EmergeFromCocoon(UnityEngine.Random.Range(0.2f, 1f)));
         }
+        else if(!m_beetleBase.m_emerging)
+        {
+            m_timeUntilStateCheck -= Time.deltaTime;
+            if (m_timeUntilStateCheck <= 0)
+            {
+                UpdateState();
+                m_timeUntilStateCheck = m_stateUpdateTime;
+            }
 
-        UpdateCurrentState();
+            UpdateCurrentState();
+        }
     }
 
     // this is run every m_stateUpdateTime and does computation intense stuff like looking for closest enemy
