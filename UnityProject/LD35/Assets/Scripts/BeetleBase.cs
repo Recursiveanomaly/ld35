@@ -323,8 +323,7 @@ public class BeetleBase : MonoBehaviour
     {
         if (m_skeleton != null && m_skeleton.state != null)
         {
-            m_skeleton.state.SetAnimation(0, "hurt", false);
-            m_skeleton.state.AddAnimation(0, "idle", true, 0);
+            m_skeleton.state.SetAnimation(1, "hurt", false);
             PlayJumpSFX();
         }
     }
