@@ -155,6 +155,7 @@
     <Compile Include="Assets\Scripts\BeetleDamageSpot.cs" />
     <Compile Include="Assets\Scripts\BeetleMaster.cs" />
     <Compile Include="Assets\Scripts\BotController.cs" />
+    <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\NoRotateText.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ProgressBarBehaviour.cs" />
