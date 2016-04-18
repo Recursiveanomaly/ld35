@@ -355,6 +355,7 @@ public class BeetleBase : MonoBehaviour
             m_skeleton.state.SetAnimation(0, "death", false);
             m_skeleton.state.SetAnimation(1, "death", false);
         }
+        KillCounter.Instance.AddKill();
     }
 
     public void PlayJumpAnimation()
@@ -505,6 +506,13 @@ public class BeetleBase : MonoBehaviour
         m_body.velocity = Vector3.zero;
         m_dead = true;
         yield return new WaitForSeconds(2f);
-        GameObject.Destroy(gameObject);
+        if (m_photonView.isMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
+        else
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 }
