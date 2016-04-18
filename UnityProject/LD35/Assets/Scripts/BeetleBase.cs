@@ -458,7 +458,7 @@ public class BeetleBase : MonoBehaviour
     [PunRPC]
     public void RPC_Bounce(Vector3 force)
     {
-        if (m_timeSinceBounce + m_bounceCooldown < Time.time)
+        if (m_timeSinceBounce + m_bounceCooldown < Time.time && !m_dead)
         {
             m_bounceCooldown = Time.time;
             m_body.velocity = Vector3.zero;
@@ -480,6 +480,7 @@ public class BeetleBase : MonoBehaviour
 
     IEnumerator CR_Destroy()
     {
+        m_body.velocity = Vector3.zero;
         m_dead = true;
         PlayDeathAnimation();
         yield return new WaitForSeconds(2f);
