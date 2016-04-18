@@ -480,9 +480,12 @@ public class BeetleBase : MonoBehaviour
 
     IEnumerator CR_Destroy()
     {
+        if (!m_dead)
+        {
+            PlayDeathAnimation();
+        }
         m_body.velocity = Vector3.zero;
         m_dead = true;
-        PlayDeathAnimation();
         yield return new WaitForSeconds(2f);
         GameObject.Destroy(gameObject);
     }
