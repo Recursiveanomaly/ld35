@@ -391,7 +391,6 @@ public class BeetleBase : MonoBehaviour
             m_skeleton.state.SetAnimation(0, "death", false);
             PlayDeathSFX();
         }
-        KillCounter.Instance.AddKill();
     }
 
     public void PlayJumpAnimation()
