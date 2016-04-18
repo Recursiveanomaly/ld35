@@ -173,6 +173,8 @@ public class BeetleBase : MonoBehaviour
     public AudioClip m_jumpClip;
     public AudioClip m_counterTurnClip;
     public AudioClip m_clockTurnClip;
+    public AudioClip m_deathClip;
+    public AudioClip m_impactClip;
     AudioSource m_turnAudioSource;
 
     public SkeletonAnimation m_skeleton;
@@ -315,6 +317,28 @@ public class BeetleBase : MonoBehaviour
         }
     }
 
+    public void PlayDeathSFX()
+    {
+        //if (m_photonView == null || !m_photonView.isMine || gameObject.tag == "Bot") return;
+        if (m_deathClip!= null)
+        {
+            AudioSource.PlayClipAtPoint(m_deathClip, transform.position, 0.5f);
+            //m_audioSource.clip = m_jumpClip;
+            //m_audioSource.Play();
+        }
+    }
+
+    public void PlayImpactSFX()
+    {
+        //if (m_photonView == null || !m_photonView.isMine || gameObject.tag == "Bot") return;
+        if (m_impactClip != null)
+        {
+            AudioSource.PlayClipAtPoint(m_impactClip, transform.position, 0.5f);
+            //m_audioSource.clip = m_jumpClip;
+            //m_audioSource.Play();
+        }
+    }
+
     float m_stopColldown = float.MaxValue;
     float m_stopColldownMax = 0.5f;
     public void StopSpinSFX()
@@ -345,6 +369,7 @@ public class BeetleBase : MonoBehaviour
         {
             m_skeleton.state.SetAnimation(1, "hurt", false);
             PlayJumpSFX();
+            PlayImpactSFX();
         }
     }
 
@@ -354,6 +379,7 @@ public class BeetleBase : MonoBehaviour
         {
             m_skeleton.state.SetAnimation(0, "death", false);
             m_skeleton.state.SetAnimation(1, "death", false);
+            PlayDeathSFX();
         }
         KillCounter.Instance.AddKill();
     }
