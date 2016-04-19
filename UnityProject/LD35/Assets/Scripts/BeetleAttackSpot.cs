@@ -27,28 +27,33 @@ public class BeetleAttackSpot : MonoBehaviour
         BeetleDamageSpot damageSpot = coll.collider.gameObject.GetComponent<BeetleDamageSpot>();
         if (damageSpot != null && damageSpot.m_beetleBase != null && !damageSpot.m_beetleBase.m_cocoon)
         {
-            // we don't apply damage we caused
-            if (!m_beetleBase.m_photonView.isMine)
+            //// we don't apply damage we caused
+            //if (!m_beetleBase.m_photonView.isMine)
+            //{
+            //    // we didn't cause this damage
+            //    if (damageSpot.m_beetleBase.m_photonView.isMine)
+            //    {
+            //        // someone is applying damage to us
+            //        damageSpot.m_beetleBase.ApplyDamage(m_beetleBase);
+            //    }
+            //}
+            //else if (m_beetleBase.m_photonView.tag == "Bot")
+            //{
+            //    // this was caused by a bot
+            //    if (damageSpot.m_beetleBase.m_photonView.isMine)
+            //    {
+            //        // someone is applying damage to something we own
+            //        damageSpot.m_beetleBase.ApplyDamage(m_beetleBase);
+            //    }
+            //}
+            //else if(damageSpot.m_beetleBase.tag == "Bot")
+            //{
+            //    // this was done to a bot by a locally owned beetle
+            //    damageSpot.m_beetleBase.ApplyDamage(m_beetleBase);
+            //}// we don't apply damage we caused
+            if (m_beetleBase.m_photonView.isMine)
             {
-                // we didn't cause this damage
-                if (damageSpot.m_beetleBase.m_photonView.isMine)
-                {
-                    // someone is applying damage to us
-                    damageSpot.m_beetleBase.ApplyDamage(m_beetleBase);
-                }
-            }
-            else if (m_beetleBase.m_photonView.tag == "Bot")
-            {
-                // this was caused by a bot
-                if (damageSpot.m_beetleBase.m_photonView.isMine)
-                {
-                    // someone is applying damage to something we own
-                    damageSpot.m_beetleBase.ApplyDamage(m_beetleBase);
-                }
-            }
-            else if(damageSpot.m_beetleBase.tag == "Bot")
-            {
-                // this was done to a bot by a locally owned beetle
+                // apply damage
                 damageSpot.m_beetleBase.ApplyDamage(m_beetleBase);
             }
         }

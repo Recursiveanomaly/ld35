@@ -33,4 +33,7 @@ MonoBehaviour:
   - RequestForPickupTimes
   - RPC_ApplyDamage
   - RPC_Bounce
+  - RPC_PlayEmergeAnimation
+  - RPC_PlayJumpAnimation
+  - RPC_SetParts
   DisableAutoOpenWizard: 1

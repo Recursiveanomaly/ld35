@@ -3,11 +3,13 @@ using System.Collections;
 
 public class RoomSetup : MonoBehaviour 
 {
-    int m_numBots = 20;
+    int m_numBots = 17;
 
     void OnJoinedRoom()
     {
-        if( PhotonNetwork.isMasterClient == false )
+        MetamorphosisPanel.Instance.Show();
+
+        if ( PhotonNetwork.isMasterClient == false )
         {
             return;
         }

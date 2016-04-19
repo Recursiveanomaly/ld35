@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (m_photonView.isMine == false || m_beetleBase.m_dead)
+        if (m_photonView.isMine == false || m_beetleBase.m_dead || MetamorphosisPanel.Instance.gameObject.activeSelf)
         {
             return;
         }
@@ -47,20 +47,20 @@ public class PlayerController : MonoBehaviour
         Vector2 forceVector = Vector3.zero;
         Vector3 eulerRotation = transform.localRotation.eulerAngles;
 
+        bool stopSpin = true;
+
         // rotate using left/right
         if (Input.GetAxisRaw("Horizontal") > 0.5f)
         {
             eulerRotation.z -= m_beetleBase.m_turnSpeed * Time.deltaTime;
             m_beetleBase.PlayTurnRightAnimation();
+            stopSpin = false;
         }
         else if (Input.GetAxisRaw("Horizontal") < -0.5f)
         {
             eulerRotation.z += m_beetleBase.m_turnSpeed * Time.deltaTime;
             m_beetleBase.PlayTurnLeftAnimation();
-        }
-        else
-        {
-            m_beetleBase.StopSpinSFX();
+            stopSpin = false;
         }
 
         // jump!
@@ -73,6 +73,13 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetAxisRaw("Vertical") < -0.5f)
         {
             movementVector.y = -m_beetleBase.m_backSpeed * Time.deltaTime;
+            m_beetleBase.PlayTurnRightAnimation();
+            stopSpin = false;
+        }
+
+        if(stopSpin)
+        {
+            m_beetleBase.StopSpinSFX();
         }
 
         // rotate the movement and force vector to the forward facing direction

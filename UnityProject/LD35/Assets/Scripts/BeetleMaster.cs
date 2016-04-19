@@ -24,6 +24,11 @@ public class BeetleMaster : Singleton<BeetleMaster>
             //spawn a new beetle
             SpawnBot();
         }
+        else if(beetle.m_photonView.isMine)
+        {
+            //player died 
+            MetamorphosisPanel.Instance.Show();
+        }
     }
 
     public void Kill(int sourceID)
@@ -41,7 +46,12 @@ public class BeetleMaster : Singleton<BeetleMaster>
     float m_roomHeight = 50;
     public void SpawnBot()
     {
-        PhotonNetwork.InstantiateSceneObject("BeetleBotPrefab", new Vector3(Random.Range(-m_roomWidth / 2, m_roomWidth / 2), Random.Range(-m_roomHeight / 2, m_roomHeight / 2), 0), Quaternion.identity, 0, null);
+        PhotonNetwork.InstantiateSceneObject("BeetleBotPrefab", RandomSpawn(), Quaternion.identity, 0, null);
+    }
+
+    public Vector3 RandomSpawn()
+    {
+        return new Vector3(Random.Range(-m_roomWidth / 2, m_roomWidth / 2), Random.Range(-m_roomHeight / 2, m_roomHeight / 2), 0);
     }
 
     public BeetleBase FindClosestEnemy(BeetleBase originBeetle)

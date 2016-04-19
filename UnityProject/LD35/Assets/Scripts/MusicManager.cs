@@ -10,19 +10,25 @@ public class MusicManager : Singleton<MusicManager>
     void Awake()
     {
         if(m_audioSource == null) m_audioSource = gameObject.AddComponent<AudioSource>();
-        PlayThemeMusic();
+        PlayCocoonMusic();
     }
 
     public void PlayThemeMusic()
     {
-        m_audioSource.clip = m_themeMusic;
-        m_audioSource.Play();
+        if (m_audioSource.clip != m_themeMusic || !m_audioSource.isPlaying)
+        {
+            m_audioSource.clip = m_themeMusic;
+            m_audioSource.Play();
+        }
     }
 
     public void PlayCocoonMusic()
     {
-        m_audioSource.clip = m_cocoonMusic;
-        m_audioSource.Play();
+        if (m_audioSource.clip != m_cocoonMusic || !m_audioSource.isPlaying)
+        {
+            m_audioSource.clip = m_cocoonMusic;
+            m_audioSource.Play();
+        }
     }
 
 }

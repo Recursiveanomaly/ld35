@@ -220,33 +220,68 @@ public class BeetleBase : MonoBehaviour
         m_turnAudioSource = gameObject.AddComponent<AudioSource>();
     }
 
-    void Start()
-    {
-        // randomize the name
-        int nameID;
-        BeetleNameDef nameDef = StaticData.Instance.m_beetleNames.GetRandomStaticDef(out nameID);
-        if (nameDef != null)
-        {
-            m_name = nameDef.m_scientificName;
-        }
-        else
-        {
-            m_name = "Caulophilus oryzae";
-        }
-        m_textMesh.text = m_name;
 
-        // randomize body parts
-        HeadPartDef headDef = StaticData.Instance.m_heads.GetRandomStaticDef(out m_headDefID);
+    [PunRPC]
+    public void RPC_SetParts(string name, int headID, int thoraxID, int abdomenID, int legID)
+    {
+        if (m_photonView.isMine) return;
+        m_name = name;
+        m_headDefID = headID;
+        m_thoraxDefID = thoraxID;
+        m_abdomenDefID = abdomenID;
+        m_legDefID = legID;
+        ApplyDefs();
+    }
+
+    public void ApplyDefs()
+    {
+        m_textMesh.text = m_name;
+        
+        HeadPartDef headDef = GetHeadDef();
         if (headDef != null) SetBodyPart(eBodyPartType.kHead, headDef.m_assetName);
 
-        ThoraxPartDef thoraxDef = StaticData.Instance.m_thoraces.GetRandomStaticDef(out m_thoraxDefID);
+        ThoraxPartDef thoraxDef = GetThoraxDef();
         if (thoraxDef != null) SetBodyPart(eBodyPartType.kThorax, thoraxDef.m_assetName);
 
-        AbdomenPartDef abdomenDef = StaticData.Instance.m_abdomens.GetRandomStaticDef(out m_abdomenDefID);
+        AbdomenPartDef abdomenDef = GetAbdomenDef();
         if (abdomenDef != null) SetBodyPart(eBodyPartType.kAbdomen, abdomenDef.m_assetName);
 
-        LegPartDef legDef = StaticData.Instance.m_legs.GetRandomStaticDef(out m_legDefID);
+        LegPartDef legDef = GetLegDef();
         if (legDef != null) SetBodyPart(eBodyPartType.kLeg, legDef.m_assetName);
+    }
+
+    void Start()
+    {
+        if (gameObject.tag == "Bot")
+        {
+            // randomize the name
+            int nameID;
+            BeetleNameDef nameDef = StaticData.Instance.m_beetleNames.GetRandomStaticDef(out nameID);
+            if (nameDef != null)
+            {
+                m_name = nameDef.m_scientificName;
+            }
+            else
+            {
+                m_name = "Caulophilus oryzae";
+            }
+            m_textMesh.text = m_name;
+
+            // randomize body parts
+            HeadPartDef headDef = StaticData.Instance.m_heads.GetRandomStaticDef(out m_headDefID);
+            if (headDef != null) SetBodyPart(eBodyPartType.kHead, headDef.m_assetName);
+
+            ThoraxPartDef thoraxDef = StaticData.Instance.m_thoraces.GetRandomStaticDef(out m_thoraxDefID);
+            if (thoraxDef != null) SetBodyPart(eBodyPartType.kThorax, thoraxDef.m_assetName);
+
+            AbdomenPartDef abdomenDef = StaticData.Instance.m_abdomens.GetRandomStaticDef(out m_abdomenDefID);
+            if (abdomenDef != null) SetBodyPart(eBodyPartType.kAbdomen, abdomenDef.m_assetName);
+
+            LegPartDef legDef = StaticData.Instance.m_legs.GetRandomStaticDef(out m_legDefID);
+            if (legDef != null) SetBodyPart(eBodyPartType.kLeg, legDef.m_assetName);
+
+            m_photonView.RPC("RPC_SetParts", PhotonTargets.All, m_name, m_headDefID, m_thoraxDefID, m_abdomenDefID, m_legDefID);
+        }
 
         // read from the values to setup inspector, bleh
         float back = m_backSpeed;
@@ -271,9 +306,24 @@ public class BeetleBase : MonoBehaviour
         yield return new WaitForSeconds(randomizer);
         m_skeleton.state.SetAnimation(0, "cocoonEmerge", false);
         m_skeleton.state.AddAnimation(0, "idle", true, 0);
+        m_photonView.RPC("RPC_PlayEmergeAnimation", PhotonTargets.All);
         yield return new WaitForSeconds(1);
         m_cocoon = false;
         m_emerging = false;
+    }
+    
+    [PunRPC]
+    public void RPC_PlayEmergeAnimation()
+    {
+        if (m_photonView.isMine) return;
+
+        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "death")
+        {
+            m_skeleton.state.SetAnimation(0, "cocoonEmerge", false);
+            m_skeleton.state.AddAnimation(0, "idle", true, 0);
+        }
+
+        m_cocoon = false;
     }
 
     void OnDestroy()
@@ -384,7 +434,7 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayHurtAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null && !m_cocoon && !m_emerging && m_skeleton.AnimationName != "death")
+        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(1, "hurt", false);
             PlayImpactSFX();
@@ -407,12 +457,26 @@ public class BeetleBase : MonoBehaviour
             m_skeleton.state.SetAnimation(0, "jump", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);
             PlayJumpSFX();
+            m_photonView.RPC("RPC_PlayJumpAnimation", PhotonTargets.All);
         }
+    }
+
+    [PunRPC]
+    public void RPC_PlayJumpAnimation()
+    {
+        if (m_photonView.isMine) return;
+
+        if (m_skeleton != null && m_skeleton.state != null && m_skeleton.AnimationName != "death")
+        {
+            m_skeleton.state.SetAnimation(0, "jump", false);
+            m_skeleton.state.AddAnimation(0, "idle", true, 0);
+        }
+        m_cocoon = false;
     }
 
     public void PlayTurnLeftAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null && !m_cocoon && !m_emerging && m_skeleton.AnimationName != "turnLeft" && m_skeleton.AnimationName != "death")
+        if (m_skeleton != null && m_skeleton.state != null && !m_cocoon && !m_emerging && m_skeleton.AnimationName == "idle" && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(0, "turnLeft", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);
@@ -422,7 +486,7 @@ public class BeetleBase : MonoBehaviour
 
     public void PlayTurnRightAnimation()
     {
-        if (m_skeleton != null && m_skeleton.state != null && !m_cocoon && !m_emerging && m_skeleton.AnimationName != "turnRight" && m_skeleton.AnimationName != "death")
+        if (m_skeleton != null && m_skeleton.state != null && !m_cocoon && !m_emerging && m_skeleton.AnimationName == "idle" && m_skeleton.AnimationName != "death")
         {
             m_skeleton.state.SetAnimation(0, "turnRight", false);
             m_skeleton.state.AddAnimation(0, "idle", true, 0);
@@ -548,7 +612,19 @@ public class BeetleBase : MonoBehaviour
         }
         m_body.velocity = Vector3.zero;
         m_dead = true;
-        yield return new WaitForSeconds(2f);
+
+        Collider2D collider = GetComponent<Collider2D>();
+        if(collider != null)
+        {
+            collider.enabled = false;
+        }
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        foreach(var col in colliders)
+        {
+            col.enabled = false;
+        }
+
+        yield return new WaitForSeconds(3f);
         if (m_photonView.isMine)
         {
             PhotonNetwork.Destroy(gameObject);
