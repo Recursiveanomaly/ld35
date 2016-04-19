@@ -3245,7 +3245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoConnect: 1
-  Version: 8
+  Version: 20
 --- !u!4 &370445096
 Transform:
   m_ObjectHideFlags: 0
@@ -7656,7 +7656,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: METAMORPHOSIS
+  m_Text: BEETLE MORPHOSIS
 --- !u!222 &984185792
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13967,7 +13967,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: METAMORPHOSIS
+  m_Text: BEETLE MORPHOSIS
 --- !u!222 &1647465318
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14393,7 +14393,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: METAMORPHOSIS
+  m_Text: BEETLE MORPHOSIS
 --- !u!222 &1695766219
 CanvasRenderer:
   m_ObjectHideFlags: 0

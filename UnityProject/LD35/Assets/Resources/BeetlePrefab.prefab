@@ -192,10 +192,15 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
+  - {fileID: 2100000, guid: cbb4b8bf6d5d4af4690e789063d4d562, type: 2}
   - {fileID: 2100000, guid: 513a85125487e0745a88023451b7d748, type: 2}
+  - {fileID: 2100000, guid: cbb4b8bf6d5d4af4690e789063d4d562, type: 2}
+  - {fileID: 2100000, guid: a7fcb7025b677a840b35bcb5a2cc712c, type: 2}
+  - {fileID: 2100000, guid: cbb4b8bf6d5d4af4690e789063d4d562, type: 2}
   - {fileID: 2100000, guid: a7fcb7025b677a840b35bcb5a2cc712c, type: 2}
   - {fileID: 2100000, guid: 513a85125487e0745a88023451b7d748, type: 2}
-  - {fileID: 2100000, guid: a7fcb7025b677a840b35bcb5a2cc712c, type: 2}
+  - {fileID: 2100000, guid: cbb4b8bf6d5d4af4690e789063d4d562, type: 2}
+  - {fileID: 2100000, guid: 513a85125487e0745a88023451b7d748, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -309,7 +314,7 @@ TextMesh:
   m_Font: {fileID: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4278190224
 --- !u!114 &11401336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,6 +354,8 @@ MonoBehaviour:
   m_thoraxDefID: 0
   m_abdomenDefID: 0
   m_legDefID: 0
+  m_cocoon: 0
+  m_emerging: 0
 --- !u!114 &11413688
 MonoBehaviour:
   m_ObjectHideFlags: 1
